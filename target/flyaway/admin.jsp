@@ -20,10 +20,11 @@
            }
 %>
 
-	<h2>Welcome to FlyAway Admin Home Page</h2>
+	<h2>Welcome to FlyAway Administrator's Operations</h2>
 
 	<c:if test="${sessionScope.admin != null}">
 		<!-- As a link -->
+		<div class="container">
 		<nav class="navbar navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Navbar</a>
@@ -36,6 +37,8 @@
 				<span class="navbar-brand mb-0 h1">Navbar</span>
 			</div>
 		</nav>
+		
+		</div>
 
 	</c:if>
 
