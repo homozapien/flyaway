@@ -8,36 +8,62 @@
 </head>
 <body>
 
-	<%
+	<!--  %
      String admin = (String)session.getAttribute("admin");
        if(admin==null)
            {
 	          response.sendRedirect("index.jsp");
            }
-           else 
-           {
-	           out.println("Welcome to Admin Home Page "+admin);	
-           }
-%>
+   %-->
 
-	<h2>Welcome to FlyAway Admin Home Page</h2>
 
-	<c:if test="${sessionScope.admin != null}">
-		<!-- As a link -->
-		<nav class="navbar navbar-light bg-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+	<c:choose>
+
+		<c:when test="${sessionScope.admin != null}">
+			
+			<div class="container">
+			<div class="jumbotron">
+              <h2>FlyAway Administrative Operations</h2>    
+            </div>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Operation Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="changepassword.jsp">Change Password</a></td>
+							<td>Password Management</td>
+						</tr>
+						<tr>
+
+							<td><a href="cityairport.jsp">City/Airports</a></td>
+							<td>Setup airports in cities in countries</td>
+						</tr>
+						<tr>
+							<td><a href="airline.jsp">Airline</a></td>
+							<td>Setup Airlines</td>
+						</tr>
+
+						<tr>
+							<td><a href="airlineflights.jsp">Airline Flights</a></td>
+							<td>Setup Airlines flight details</td>
+
+						</tr>
+					<tbody>
+				</table>
 			</div>
-		</nav>
 
-		<!-- As a heading -->
-		<nav class="navbar navbar-light bg-light">
-			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1">Navbar</span>
-			</div>
-		</nav>
-
-	</c:if>
+		</c:when>
+		<c:otherwise>
+		 <%
+	          response.sendRedirect("index.jsp");
+         %>	   
+	</c:otherwise>
+	</c:choose>
 
 </body>
 </html>
