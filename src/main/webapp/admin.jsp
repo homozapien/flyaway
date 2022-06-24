@@ -8,15 +8,6 @@
 </head>
 <body>
 
-	<!--  %
-     String admin = (String)session.getAttribute("admin");
-       if(admin==null)
-           {
-	          response.sendRedirect("index.jsp");
-           }
-   %-->
-
-
 	<c:choose>
 
 		<c:when test="${sessionScope.admin != null}">
