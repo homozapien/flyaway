@@ -1,11 +1,15 @@
 package com.flyaway.controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.flyaway.entities.CityAirport;
+import com.flyaway.service.CityAirportService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -41,7 +45,29 @@ public class CityAirportController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
+		String code     =      request.getParameter("airportcode");
+		String city     =      request.getParameter("airportcity");
+		String country  =      request.getParameter("airportcountry"); 
+				
+		//CityAirport cityAiport = new CityAirport(code, city, country );
+		
+		CityAirportService  service = new CityAirportService ();
+		String result =    service.createCityAirport(new CityAirport(code, city, country ));
+		
+		RequestDispatcher rd1 = request.getRequestDispatcher("success.jsp");
+		RequestDispatcher rd2 = request.getRequestDispatcher("failure.jsp");
+		
+		if(result.equals("Success")) 
+		{
+			rd1.forward(request, response);
+	    }
+		else
+		{
+			rd2.forward(request, response);
+	   }
+		
 	}
 
 }
