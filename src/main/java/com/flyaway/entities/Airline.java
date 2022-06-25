@@ -26,10 +26,6 @@ public class Airline
 	//@JoinColumn(name = "AirlineId")	//@JoinColumn(name = "id", referencedColumnName = "id")
     private Set<AirlineFlight> setOfflights; //An airline will have Unique flightIds
     
-    
-    
-    
-    
 	
 	public String getId() {
 		return id;

@@ -1,3 +1,4 @@
+com/flyaway/service/AirlineService.class
 com/flyaway/entities/AirlineFlight.class
 com/flyaway/launcher/Main.class
 com/flyaway/init/FlyAwayServletContextListner.class
@@ -6,10 +7,12 @@ com/flyaway/service/LoginService.class
 com/flyaway/pojo/Login.class
 com/flyaway/entities/Customer.class
 com/flyaway/entities/Airline.class
+com/flyaway/dao/AirlineDAO.class
 com/flyaway/dao/CityAiportDAO.class
 com/flyaway/dao/LoginDAO.class
 com/flyaway/entities/CityAirport.class
 com/flyaway/util/HibernateUtil.class
 com/flyaway/controller/LoginController.class
 com/flyaway/controller/CityAirportController.class
+com/flyaway/controller/AirlineController.class
 com/flyaway/entities/FlightBooking.class

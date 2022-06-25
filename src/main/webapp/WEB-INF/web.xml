@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>flyaway</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -31,5 +31,15 @@
   <servlet-mapping>
     <servlet-name>CityAirportController</servlet-name>
     <url-pattern>/CityAirportController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AirlineController</display-name>
+    <servlet-name>AirlineController</servlet-name>
+    <servlet-class>com.flyaway.controller.AirlineController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AirlineController</servlet-name>
+    <url-pattern>/AirlineController</url-pattern>
   </servlet-mapping>
 </web-app>
