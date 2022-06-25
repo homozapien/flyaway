@@ -1,6 +1,6 @@
 package com.flyaway.entities;
 
-import java.util.Set;
+
 
 
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "cityairport")
+@Table(name = "cities_airports")
 public class CityAirport 
 {
 	@Id
