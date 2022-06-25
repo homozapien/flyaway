@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "cities_airports")
+@Table(name = "airports")
 public class CityAirport 
 {
 	@Id
