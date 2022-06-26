@@ -6,9 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.flyaway.entities.Airline;
-import com.flyaway.entities.CityAirport;
 import com.flyaway.service.AirlineService;
-import com.flyaway.service.CityAirportService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -41,7 +41,7 @@ public class HibernateUtil
 			
 			sf = con.addAnnotatedClass(CityAirport.class)
 				    .addAnnotatedClass(Airline.class)
-				    .addAnnotatedClass(AirlineFlight.class)				    
+				    .addAnnotatedClass(FlightSchedule.class)				    
 				    .addAnnotatedClass(FlightBooking.class)
 				    .addAnnotatedClass(Customer.class)
 					.buildSessionFactory(serviceRegistry);

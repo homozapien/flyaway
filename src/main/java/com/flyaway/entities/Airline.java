@@ -24,7 +24,7 @@ public class Airline
     		//   orphanRemoval = true,
     		   mappedBy = "airline")  
 	//@JoinColumn(name = "AirlineId")	//@JoinColumn(name = "id", referencedColumnName = "id")
-    private Set<AirlineFlight> setOfflights; //An airline will have Unique flightIds
+    private Set<FlightSchedule> setOfflights; //An airline will have Unique flightIds
     
 	
 	public String getId() {
@@ -40,10 +40,10 @@ public class Airline
 		this.name = name;
 	}
 	
-	public Set<AirlineFlight> getSetOfflights() {
+	public Set<FlightSchedule> getSetOfflights() {
 		return setOfflights;
 	}
-	public void setSetOfflights(Set<AirlineFlight> setOfflights) {
+	public void setSetOfflights(Set<FlightSchedule> setOfflights) {
 		this.setOfflights = setOfflights;
 	}
 	  

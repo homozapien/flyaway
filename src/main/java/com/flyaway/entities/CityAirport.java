@@ -36,6 +36,12 @@ public class CityAirport
 		this.country = country;
 	}
 	
+	
+	public CityAirport() {
+		super();		
+	}
+	
+	
 	public void setCode(String code) {
 		this.code = code;
 	}

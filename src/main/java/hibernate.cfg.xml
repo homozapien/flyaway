@@ -15,7 +15,7 @@
   
   <mapping class="com.flyaway.entities.CityAirport"/>
   <mapping class="com.flyaway.entities.Airline"/>
-  <mapping class="com.flyaway.entities.AirlineFlight"/> 
+  <mapping class="com.flyaway.entities.FlightSchedule"/> 
   <mapping class="com.flyaway.entities.FlightBooking"/>
   <mapping class="com.flyaway.entities.Customer"/>
  </session-factory>

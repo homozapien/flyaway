@@ -48,8 +48,19 @@
     <servlet-name>DataloaderController</servlet-name>
     <servlet-class>com.flyaway.controller.DataloaderController</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>FlightScheduleController</display-name>
+  	<servlet-name>FlightScheduleController</servlet-name>
+  	<servlet-class>com.flyaway.controller.FlightScheduleController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>DataloaderController</servlet-name>
     <url-pattern>/DataloaderController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FlightScheduleController</servlet-name>
+  	<url-pattern>/FlightScheduleController</url-pattern>
   </servlet-mapping>
 </web-app>
