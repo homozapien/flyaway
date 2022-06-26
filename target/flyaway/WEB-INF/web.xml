@@ -42,4 +42,14 @@
     <servlet-name>AirlineController</servlet-name>
     <url-pattern>/AirlineController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DataloaderController</display-name>
+    <servlet-name>DataloaderController</servlet-name>
+    <servlet-class>com.flyaway.controller.DataloaderController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DataloaderController</servlet-name>
+    <url-pattern>/DataloaderController</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -31,7 +31,7 @@
 						</tr>
 						<tr>
 
-							<td><a href="cityairport.jsp">City/Airports</a></td>
+							<td><a href="cityairport.jsp">Airports</a></td>
 							<td>Setup airports in cities in countries</td>
 						</tr>
 						<tr>
@@ -42,8 +42,13 @@
 						<tr>
 							<td><a href="airlineflights.jsp">Airline Flights</a></td>
 							<td>Setup Airlines flight details</td>
-
 						</tr>
+						
+						<tr>
+							<td><a href="DataloaderController">Reporting Dashboard</a></td>
+							<td>Show readonly reporting dashboard</td>
+						</tr>					
+						
 					<tbody>
 				</table>
 			</div>

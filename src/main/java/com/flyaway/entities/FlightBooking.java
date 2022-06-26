@@ -27,17 +27,25 @@ public class FlightBooking
 	//@JoinColumn(name = "cust_Id",referencedColumnName = "custId")	
 	private Set<Customer> setOfCustomers;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "flight_id", referencedColumnName = "flightId")
 	private AirlineFlight flight;
 	
-	/*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "departureCity", referencedColumnName = "city")
-	private CityAirport departureCity; //departure city / airport
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "departure_city", referencedColumnName = "departure_city")
+	private AirlineFlight departureCity; //departure city / airport
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "destinationCity", referencedColumnName = "city")
-	private CityAirport destinationCity; //destination city / airport */
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "destination_city", referencedColumnName = "destination_city")
+	private AirlineFlight destinationCity; //destination city / airport 
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "departure_country", referencedColumnName = "departure_country")
+	private AirlineFlight departureCntry; //departure city / airport
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "destination_country", referencedColumnName = "destination_country")
+	private AirlineFlight destinationCntry; //destination city / airport 
 	
 	private Date departureDate, returnDate;
 	private double ticketPrice;
@@ -57,18 +65,7 @@ public class FlightBooking
 	public void setFlight(AirlineFlight flight) {
 		this.flight = flight;
 	}
-	/*public CityAirport getDepartureCity() {
-		return departureCity;
-	}
-	public void setDepartureCity(CityAirport departureCity) {
-		this.departureCity = departureCity;
-	}
-	public CityAirport getDestinationCity() {
-		return destinationCity;
-	}
-	public void setDestinationCity(CityAirport destinationCity) {
-		this.destinationCity = destinationCity; 
-	} */
+	
 	public Date getDepartureDate() {
 		return departureDate;
 	}
@@ -112,6 +109,31 @@ public class FlightBooking
 	public void setIsFlightConfirmed(String isFlightConfirmed) {
 		this.isFlightConfirmed = isFlightConfirmed;
 	}
+	public AirlineFlight getDepartureCity() {
+		return departureCity;
+	}
+	public void setDepartureCity(AirlineFlight departureCity) {
+		this.departureCity = departureCity;
+	}
+	public AirlineFlight getDestinationCity() {
+		return destinationCity;
+	}
+	public void setDestinationCity(AirlineFlight destinationCity) {
+		this.destinationCity = destinationCity;
+	}
+	public AirlineFlight getDepartureCntry() {
+		return departureCntry;
+	}
+	public void setDepartureCntry(AirlineFlight departureCntry) {
+		this.departureCntry = departureCntry;
+	}
+	public AirlineFlight getDestinationCntry() {
+		return destinationCntry;
+	}
+	public void setDestinationCntry(AirlineFlight destinationCntry) {
+		this.destinationCntry = destinationCntry;
+	}
+	
 	
 	
 	

@@ -14,19 +14,15 @@
 			<button class="btn btn-dark" onclick="history.back()">Go
 				Back</button>
 			<hr>
-
-
 			<div class="container">
 
 				<div class="card">
 					<div class="card-body">
 						<div class="row mb-3">
-							<div class="alert alert-success">Success! Well done its
-								submitted.</div>
+							<div class="alert alert-success">Success! Well done its submitted.</div>								
 						</div>
 						<div class="row mb-3">
-
-							<a href="dashboard.jsp" class="btn btn-primary stretched-link">Dashboard</a>
+							<a href="DataloaderController" class="btn btn-primary stretched-link">Dashboard</a>
 						</div>
 
 					</div>
