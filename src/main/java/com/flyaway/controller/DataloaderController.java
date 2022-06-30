@@ -38,13 +38,6 @@ public class DataloaderController extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
 		List<FlightSchedule> flightSchedules = new FlightScheduleService().getAllFlightSchedules();
-        System.out.println(">>>>>> Flight Schedule list >>>> ");
-        System.out.println(flightSchedules);
-        
-        pw.print(flightSchedules);
-        
-        System.out.println(">>>>>> Flight Schedule list >>>> ");
-        System.out.println(flightSchedules);
         
 		request.setAttribute("scheduleList", flightSchedules);
         
