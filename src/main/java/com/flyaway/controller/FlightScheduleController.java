@@ -4,6 +4,9 @@ import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.sql.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
 import com.flyaway.entities.FlightSchedule;
@@ -20,6 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class FlightScheduleController
  */
 public class FlightScheduleController extends HttpServlet {
+	private static final Logger logger = LogManager.getLogger(FlightScheduleController.class);
 	private static final long serialVersionUID = 1L;
 
     /**
@@ -56,10 +60,13 @@ public class FlightScheduleController extends HttpServlet {
 		String ticketPrice         = request.getParameter("ticketPrice");
 		String availableDate       = request.getParameter("availableDate");
 		
+		logger.debug("Date of travel is >> " + availableDate);
+		
 		FlightSchedule schedule = new FlightSchedule();
 				
 		
 		schedule.setFlightId(flightId);
+		
 		Airline airline = new Airline();
 		airline.setId(airlineId);
 		schedule.setAirline(airline);

@@ -40,8 +40,8 @@
 						</tr>
 
 						<tr>
-							<td><a href="flightschedule.jsp">Airline Flights</a></td>
-							<td>Setup Airlines flight details</td>
+							<td><a href="flightschedule.jsp">Flight Schulde</a></td>
+							<td>Setup Airlines flight Schedule</td>
 						</tr>
 						
 						<tr>

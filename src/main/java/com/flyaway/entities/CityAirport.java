@@ -3,6 +3,8 @@ package com.flyaway.entities;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,8 +13,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "airports")
-public class CityAirport 
+public class CityAirport implements Serializable
 {
+	private static final long serialVersionUID = 3756680645803624405L;
 	@Id
 	private String code;      //unique airport code 
 	private String city;      //city (model: source or destination)

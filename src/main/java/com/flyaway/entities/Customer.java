@@ -1,5 +1,6 @@
 package com.flyaway.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class Customer implements Serializable
+{
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String custId;
 	private String firstname;

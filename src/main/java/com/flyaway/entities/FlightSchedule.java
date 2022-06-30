@@ -1,6 +1,9 @@
 package com.flyaway.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,61 +11,44 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "flight_schedules")
-public class FlightSchedule {
+public class FlightSchedule implements Serializable
+{
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String flightId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "airline_id", nullable = false, updatable = false, referencedColumnName = "id")
+	@JoinColumn(name = "airline_id", referencedColumnName = "id")
 	private Airline airline;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumns({ @JoinColumn(name = "departure_city", referencedColumnName = "city"),
-			@JoinColumn(name = "departure_country", referencedColumnName = "country")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumns({ @JoinColumn(name = "departureCity", referencedColumnName = "city"),
+			@JoinColumn(name = "departureCountry", referencedColumnName = "country")
 
 	})
-	private CityAirport cityAirportDept; // Depature City / Airport where this flight is available
-											// direction: A flightId can only be available in a
+	private CityAirport cityAirportDept; 
+											
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({ @JoinColumn(name = "destination_city", referencedColumnName = "city"),
-			@JoinColumn(name = "destination_country", referencedColumnName = "country")
+	@JoinColumns({ @JoinColumn(name = "destinationCity", referencedColumnName = "city"),
+			@JoinColumn(name = "destinationCountry", referencedColumnName = "country")
 
 	})
-	private CityAirport cityAirportDest; // Depature City / Airport where this flight is available
-											// direction: A flightId can only be available in a
+	private CityAirport cityAirportDest; 
+	
+	
+											
 
-	/*
-	 * //Assumption:Specific flightId can only exist in a city / airport for a given
-	 * day
-	 * 
-	 * @OneToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = "departure_city", referencedColumnName = "city") private
-	 * CityAirport departureCity; //Depature City / Airport where this flight is
-	 * available //direction: A flightId can only be available in a
-	 * 
-	 * @OneToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = "destination_city", referencedColumnName = "city") private
-	 * CityAirport destinationCity;
-	 * 
-	 * 
-	 * @OneToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = "departure_country", referencedColumnName = "country")
-	 * private CityAirport departureCountry;
-	 * 
-	 * @OneToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = "destination_country", referencedColumnName = "country")
-	 * private CityAirport destinationCountry;
-	 */
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "flightSchedule")
+	private List<FlightBooking> listOfFlightBookings; */
+
+	
 
 	private int numOfConnections;
 	private double ticketPrice;
@@ -94,18 +80,7 @@ public class FlightSchedule {
 		this.availableDate = availableDate;
 	}
 
-	/*
-	 * public CityAirport getDepartureCity() { return departureCity; } public void
-	 * setDepartureCity(CityAirport departureCity) { this.departureCity =
-	 * departureCity; } public CityAirport getDestinationCity() { return
-	 * destinationCity; } public void setDestinationCity(CityAirport
-	 * destinationCity) { this.destinationCity = destinationCity; } public
-	 * CityAirport getDepartureCountry() { return departureCountry; } public void
-	 * setDepartureCountry(CityAirport departureCountry) { this.departureCountry =
-	 * departureCountry; } public CityAirport getDestinationCountry() { return
-	 * destinationCountry; } public void setDestinationCountry(CityAirport
-	 * destinationCountry) { this.destinationCountry = destinationCountry; }
-	 */
+	
 	public int getNumOfConnections() {
 		return numOfConnections;
 	}
@@ -137,5 +112,13 @@ public class FlightSchedule {
 	public void setCityAirportDest(CityAirport cityAirportDest) {
 		this.cityAirportDest = cityAirportDest;
 	}
+
+	/*public List<FlightBooking> getListOfFlightBookings() {
+		return listOfFlightBookings;
+	}
+
+	public void setListOfFlightBookings(List<FlightBooking> listOfFlightBookings) {
+		this.listOfFlightBookings = listOfFlightBookings;
+	} */
 
 }

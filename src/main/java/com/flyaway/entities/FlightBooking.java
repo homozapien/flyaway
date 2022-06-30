@@ -1,5 +1,6 @@
 package com.flyaway.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,38 +19,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "flight_bookings")
-public class FlightBooking 
+public class FlightBooking implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String bookingId;         //booking Id
 	
 	@OneToMany(cascade = CascadeType.ALL,
 			   fetch = FetchType.LAZY, 
 			   mappedBy = "flightBooking")  
-	//@JoinColumn(name = "cust_Id",referencedColumnName = "custId")	
 	private Set<Customer> setOfCustomers;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "flight_id", referencedColumnName = "flightId")
-	private FlightSchedule flight;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumns({ 
+		     @JoinColumn(name = "flightId",        referencedColumnName = "flightId"),		 
+			 @JoinColumn(name = "departureDate",    referencedColumnName = "availableDate")
+	})
+	private FlightSchedule flightSchedule; 
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "departure_city", referencedColumnName = "departure_city")
-	private FlightSchedule departureCity; //departure city / airport
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "destination_city", referencedColumnName = "destination_city")
-	private FlightSchedule destinationCity; //destination city / airport 
-	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "departure_country", referencedColumnName = "departure_country")
-	private FlightSchedule departureCntry; //departure city / airport
-	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "destination_country", referencedColumnName = "destination_country")
-	private FlightSchedule destinationCntry; //destination city / airport 
-	
-	private Date departureDate, returnDate;
+	private Date returnDate;
 	private double ticketPrice;
 	private String isFlightConfirmed; //Y or N based on payment services 
 	private int numOfPassengers;
@@ -58,20 +50,7 @@ public class FlightBooking
 	public void setBookingId(String bookingId) {
 		this.bookingId = bookingId;
 	}
-	
-	public FlightSchedule getFlight() {
-		return flight;
-	}
-	public void setFlight(FlightSchedule flight) {
-		this.flight = flight;
-	}
-	
-	public Date getDepartureDate() {
-		return departureDate;
-	}
-	public void setDepartureDate(Date departureDate) {
-		this.departureDate = departureDate;
-	}
+
 	public Date getReturnDate() {
 		return returnDate;
 	}
@@ -109,34 +88,38 @@ public class FlightBooking
 	public void setIsFlightConfirmed(String isFlightConfirmed) {
 		this.isFlightConfirmed = isFlightConfirmed;
 	}
-	public FlightSchedule getDepartureCity() {
-		return departureCity;
+	public FlightSchedule getFlightSchedule() {
+		return flightSchedule;
 	}
-	public void setDepartureCity(FlightSchedule departureCity) {
-		this.departureCity = departureCity;
-	}
-	public FlightSchedule getDestinationCity() {
-		return destinationCity;
-	}
-	public void setDestinationCity(FlightSchedule destinationCity) {
-		this.destinationCity = destinationCity;
-	}
-	public FlightSchedule getDepartureCntry() {
-		return departureCntry;
-	}
-	public void setDepartureCntry(FlightSchedule departureCntry) {
-		this.departureCntry = departureCntry;
-	}
-	public FlightSchedule getDestinationCntry() {
-		return destinationCntry;
-	}
-	public void setDestinationCntry(FlightSchedule destinationCntry) {
-		this.destinationCntry = destinationCntry;
+	public void setFlightSchedule(FlightSchedule flightSchedule) {
+		this.flightSchedule = flightSchedule;
 	}
 	
-	
-	
-	
+	/*public FlightSchedule getFlightScheduleDeptCity() {
+		return flightScheduleDeptCity;
+	}
+	public void setFlightScheduleDeptCity(FlightSchedule flightScheduleDeptCity) {
+		this.flightScheduleDeptCity = flightScheduleDeptCity;
+	}
+	public FlightSchedule getFlightScheduleDeptCntry() {
+		return flightScheduleDeptCntry;
+	}
+	public void setFlightScheduleDeptCntry(FlightSchedule flightScheduleDeptCntry) {
+		this.flightScheduleDeptCntry = flightScheduleDeptCntry;
+	}
+	public FlightSchedule getFlightScheduleDestCity() {
+		return flightScheduleDestCity;
+	}
+	public void setFlightScheduleDestCity(FlightSchedule flightScheduleDestCity) {
+		this.flightScheduleDestCity = flightScheduleDestCity;
+	}
+	public FlightSchedule getFlightScheduleDestCntry() {
+		return flightScheduleDestCntry;
+	}
+	public void setFlightScheduleDestCntry(FlightSchedule flightScheduleDestCntry) {
+		this.flightScheduleDestCntry = flightScheduleDestCntry; 
+	}*/
+
 	
 	
 }

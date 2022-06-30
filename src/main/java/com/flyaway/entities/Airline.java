@@ -1,6 +1,7 @@
 package com.flyaway.entities;
 
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,8 +15,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "airlines")
-public class Airline 
+public class Airline implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
     private String id;
     private String name;

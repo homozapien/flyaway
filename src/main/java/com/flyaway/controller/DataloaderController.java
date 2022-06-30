@@ -3,6 +3,15 @@ package com.flyaway.controller;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import com.flyaway.entities.Airline;
+import com.flyaway.entities.CityAirport;
+import com.flyaway.entities.FlightSchedule;
+import com.flyaway.service.AirlineService;
+import com.flyaway.service.CityAirportService;
+import com.flyaway.service.FlightScheduleService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,8 +36,24 @@ public class DataloaderController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	//	List<Product> products = productService.list();
-     //   request.setAttribute("products", products);
+		PrintWriter pw = response.getWriter();
+		List<FlightSchedule> flightSchedules = new FlightScheduleService().getAllFlightSchedules();
+        System.out.println(">>>>>> Flight Schedule list >>>> ");
+        System.out.println(flightSchedules);
+        
+        pw.print(flightSchedules);
+        
+        System.out.println(">>>>>> Flight Schedule list >>>> ");
+        System.out.println(flightSchedules);
+        
+		request.setAttribute("scheduleList", flightSchedules);
+        
+        List<Airline> airlines = new AirlineService().getAllAirlines();
+        request.setAttribute("airlineList", airlines);
+        
+        List<CityAirport> airports = new CityAirportService().getAllCityAirports();
+        request.setAttribute("airportList", airports);  //flightSchedules, airlines, airports
+        
         request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
 	}
 

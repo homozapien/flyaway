@@ -39,8 +39,8 @@
 
 								<div class="row mb-3">
 
-									<label for="airlineId" class="col-sm-2 col-form-label">Airport
-										City</label>
+									<label for="airlineId" class="col-sm-2 col-form-label">Airline
+										Id</label>
 
 									<div class="col-sm-10">
 										<input type="text" class="form-control input-sm"
@@ -83,7 +83,7 @@
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="destCity" placeholder="Enter flight Deptination City "
+												name="destCity" placeholder="Enter flight Destination City "
 												required />
 										</div>
 									</div>
@@ -96,16 +96,16 @@
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="deptCntry"
-												placeholder="Enter flight Deptination Country " required />
+												name="destCntry"
+												placeholder="Enter flight Destination Country " required />
 										</div>
 									</div>
 								</div>
 								
 								<div class="row mb-3">
 
-									<label for="numOfConnections" class="col-sm-2 col-form-label">Destination
-										Country</label>
+									<label for="numOfConnections" class="col-sm-2 col-form-label">Num Of Connections
+										</label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
@@ -137,7 +137,7 @@
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
-											<input type="date" id="availableDate" placeholder="Select flight date " required >
+											<input type="date" id="availableDate" name="availableDate" placeholder="Select flight date " required >
                                                   
                                                 
 										</div>

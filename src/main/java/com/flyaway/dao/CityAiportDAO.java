@@ -1,10 +1,14 @@
 package com.flyaway.dao;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
 import com.flyaway.util.HibernateUtil;
 
@@ -40,5 +44,32 @@ public class CityAiportDAO
 	    	
 	    }
 	
+	 public List<CityAirport> getAllCityAirports()
+     {
+    	 
+    	 logger.debug(" >>>>> About to execute the loading of All CityAirpot <<<<");
+    	 
+    	 List<CityAirport> listOfairports = null;
+	    	
+		 try(Session session = HibernateUtil.getSession();)			
+		 {
+			 
+				Query qry = session.createQuery("select airport from CityAirport airport");
+				listOfairports = qry.list();
+				
+				logger.debug(">>>>> Number of cityaiport found is  <<<<< " +listOfairports.size() );
+		 }
+		 catch(Exception e)
+		 {
+			 logger.catching(e);
+		 }
+		 finally
+		 {
+			 logger.debug(">>> Closing in finally of CityAiport loading HibernateUtil.closeSession() <<<");
+			 HibernateUtil.closeSession();
+		 }
+		 
+    	 return listOfairports;
+     }
 
 }

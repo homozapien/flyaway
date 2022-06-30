@@ -1,9 +1,12 @@
 package com.flyaway.dao;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
@@ -41,5 +44,32 @@ public class AirlineDAO
 	    	
 	    }
 	
-
+     public List<Airline> getAllAirlines()
+     {
+    	 
+    	 logger.debug(" >>>>> About to execute the loading of All Airlines <<<<");
+    	 
+    	 List<Airline> listOfairlines = null;
+	    	
+		 try(Session session = HibernateUtil.getSession();)			
+		 {
+			 
+				Query qry = session.createQuery("select airline from Airline airline");
+				listOfairlines = qry.list();
+				
+				logger.debug(">>>>> Number of airlines found is  <<<<<" +listOfairlines.size() );
+		 }
+		 catch(Exception e)
+		 {
+			 logger.catching(e);
+		 }
+		 finally
+		 {
+			 logger.debug(">>> Closing in finally of Airline loading HibernateUtil.closeSession() <<<");
+			 HibernateUtil.closeSession();
+		 }
+		 
+    	 return listOfairlines;
+     }
+	  
 }

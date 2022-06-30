@@ -1,8 +1,10 @@
 package com.flyaway.service;
 
 
-import com.flyaway.dao.FlightScheduleDAO;
+import java.util.List;
 
+
+import com.flyaway.dao.FlightScheduleDAO;
 import com.flyaway.entities.FlightSchedule;
 
 public class FlightScheduleService 
@@ -13,5 +15,13 @@ public class FlightScheduleService
     {
     	return dao.createFlightSchedule(schedule) == 1 ? "Success" : "Failure";
     	
+    }
+    
+   
+    
+    public List<FlightSchedule> getAllFlightSchedules()
+    {
+        return dao.getAllFlightSchedules();
+    	 
     }
 }

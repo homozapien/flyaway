@@ -70,7 +70,7 @@ public class LoginController extends HttpServlet {
 		hs.setAttribute("admin", login.getEmail());
 		rd1.forward(request, response);
 		
-		/*if(result.equals("adminSuccess")) 
+		if(result.equals("adminSuccess")) 
 		{
 			hs.setAttribute("admin", login.getEmail());
 			rd1.forward(request, response);
@@ -83,7 +83,7 @@ public class LoginController extends HttpServlet {
 		{
 			pw.println("Invalid emailId or Password");
 			rd2.include(request, response);
-	     } */
+	     } 
 	}
 
 	/**

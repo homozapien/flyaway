@@ -1,10 +1,14 @@
 package com.flyaway.dao;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
 import com.flyaway.entities.FlightSchedule;
 import com.flyaway.util.HibernateUtil;
@@ -40,6 +44,35 @@ public class FlightScheduleDAO
 		 }
 	    	
 	    }
+	
+	 public List<FlightSchedule> getAllFlightSchedules()
+	    {
+	   	 
+	   	 logger.debug(" >>>>> About to execute the loading of All Flight Schedules <<<<");
+	   	 
+	   	 List<FlightSchedule> listOfschedules = null;
+		    	
+			 try(Session session = HibernateUtil.getSession();)			
+			 {
+				 
+					Query qry = session.createQuery("select schedule from FlightSchedule schedule");
+					listOfschedules = qry.list();
+					
+					logger.debug(">>>>> Number of flight Schedule found is  <<<<< " +listOfschedules.size() );
+			 }
+			 catch(Exception e)
+			 {
+				 logger.catching(e);
+			 }
+			 finally
+			 {
+				 logger.debug(">>> Closing in finally of FlightSchedule loading HibernateUtil.closeSession() <<<");
+				 HibernateUtil.closeSession();
+			 }
+			 
+	   	 return listOfschedules;
+	    }
+	 
 	
 
 }
