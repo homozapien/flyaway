@@ -19,14 +19,15 @@ public class LoginService {
 		}
 		else 
 		{
-
-			StringBuffer sb = new StringBuffer(login.getPassword());
-			String reversePassword = sb.reverse().toString();
-			login.setPassword(reversePassword);
-
-			if(loginDao.checkLoginDetails(login)) {
+			String email    =  login.getEmail();
+			String password =  login.getPassword();
+			
+			if(null != email && !email.isEmpty() && null != password && !password.isEmpty()) 
+			{
 				return "userSuccess";
-			}else {
+			}
+			else 
+			{
 				return "userFailure";
 			}
 		}

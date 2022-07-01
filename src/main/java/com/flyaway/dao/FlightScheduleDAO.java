@@ -56,9 +56,7 @@ public class FlightScheduleDAO
 			 {
 				 
 					Query qry = session.createQuery("select schedule from FlightSchedule schedule");
-					listOfschedules = qry.list();
-					
-					logger.debug(">>>>> Number of flight Schedule found is  <<<<< " +listOfschedules.size() );
+					listOfschedules = qry.list();				
 			 }
 			 catch(Exception e)
 			 {

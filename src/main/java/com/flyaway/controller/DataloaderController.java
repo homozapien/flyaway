@@ -3,7 +3,6 @@ package com.flyaway.controller;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import com.flyaway.entities.Airline;
@@ -37,14 +36,13 @@ public class DataloaderController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		List<FlightSchedule> flightSchedules = new FlightScheduleService().getAllFlightSchedules();
-        
 		request.setAttribute("scheduleList", flightSchedules);
         
         List<Airline> airlines = new AirlineService().getAllAirlines();
         request.setAttribute("airlineList", airlines);
         
         List<CityAirport> airports = new CityAirportService().getAllCityAirports();
-        request.setAttribute("airportList", airports);  //flightSchedules, airlines, airports
+        request.setAttribute("airportList", airports);  
         
         request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
 	}

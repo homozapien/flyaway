@@ -5,11 +5,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.flyaway.entities.FlightSchedule;
 import com.flyaway.pojo.Login;
+import com.flyaway.service.FlightScheduleService;
 import com.flyaway.service.LoginService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,6 +44,17 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		logger.debug(">>>>>>>>>>>>> log4j 2 is working in LoginController <<< ");
 		PrintWriter pw = response.getWriter();
 		
@@ -66,16 +80,14 @@ public class LoginController extends HttpServlet {
 		RequestDispatcher rd1 = request.getRequestDispatcher("admin.jsp");
 		RequestDispatcher rd2 = request.getRequestDispatcher("index.jsp");
 		RequestDispatcher rd3 = request.getRequestDispatcher("customer.jsp");
-		
-		hs.setAttribute("admin", login.getEmail());
-		rd1.forward(request, response);
-		
+				
 		if(result.equals("adminSuccess")) 
 		{
 			hs.setAttribute("admin", login.getEmail());
 			rd1.forward(request, response);
 	    }
-		else if(result.equals("userSuccess")){
+		else if(result.equals("userSuccess"))
+		{
 			hs.setAttribute("user", login.getEmail());
 			rd3.forward(request, response);
 	    }
@@ -84,16 +96,6 @@ public class LoginController extends HttpServlet {
 			pw.println("Invalid emailId or Password");
 			rd2.include(request, response);
 	     } 
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

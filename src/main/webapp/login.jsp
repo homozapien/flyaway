@@ -11,7 +11,7 @@
 		<h2>Flyaway Login Portal</h2>
 		<div class="card">
 			<div class="card-body">
-				<form action="LoginController" method="get">
+				<form action="LoginController" method="post">
 
 					<div class="row mb-3">
 
@@ -33,8 +33,6 @@
 						</div>
 					</div>
 
-					<!--  <div class="row mb-3">
-						<label class="col-sm-2 col-form-label">TypeOfUser</label> -->
 					<fieldset class="row mb-3">
 					
                        <legend class="col-form-label col-sm-2 pt-0">User Type</legend>	
@@ -52,7 +50,6 @@
 									</label>
 							</div>
 						</div>
-					<!--  /div -->
 					</fieldset>
 					
 					<hr>

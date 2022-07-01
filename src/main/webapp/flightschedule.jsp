@@ -18,7 +18,7 @@
 
 			<div class="container">
 				<div class="jumbotron">
-					<h2>FlyAway Airline Flight Schedule Setup</h2>
+					<h2>FlyAway Flight Scheduler</h2>
 
 					<div class="card">
 						<div class="card-body">

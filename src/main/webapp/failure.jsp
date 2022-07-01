@@ -19,7 +19,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="row mb-3">
-							<div class="alert alert-success">Error ! Administrative
+							<div class="alert alert-danger">Error ! Administrative
 				Operation Failed. Click back to try again.</div>								
 						</div>
 						
