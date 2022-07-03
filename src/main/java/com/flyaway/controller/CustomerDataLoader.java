@@ -33,13 +33,11 @@ public class CustomerDataLoader extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//Perform an early loading of the flightSchedlues to ensure that the customer has something to search from
 		HttpSession hs = request.getSession();
 		response.setContentType("text/html");
 		
 		List<FlightSchedule> flightSchedules = new FlightScheduleService().getAllFlightSchedules();	        
 		hs.setAttribute("scheduleList", flightSchedules);
-		//request.setAttribute("scheduleList", flightSchedules);
 		
 		request.getRequestDispatcher("flightsearch.jsp").forward(request, response);
 	}

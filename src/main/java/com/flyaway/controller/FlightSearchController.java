@@ -1,12 +1,15 @@
 package com.flyaway.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.flyaway.entities.FlightSchedule;
+import com.flyaway.pojo.FlightSearch;
+import com.flyaway.service.FlightSearchService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -43,10 +46,37 @@ public class FlightSearchController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		String deptCity      =      request.getParameter("deptCity");
+		String deptCntry     =      request.getParameter("deptCntry");
+		String destCity      =      request.getParameter("destCity"); 
+		String destCntry     =      request.getParameter("destCntry");
+		int    passengerNum  =      Integer.valueOf(request.getParameter("numOfPassengers")); //check to be greater than Zero
+		Date   travelDate    =      Date.valueOf(request.getParameter("travelDate"));
+		
 		HttpSession hs = request.getSession();
 		
+		FlightSearch searchParam = new FlightSearch(deptCity, deptCntry,destCity, destCntry, travelDate);		
 		List<FlightSchedule> flightSchedules = (List<FlightSchedule>)hs.getAttribute("scheduleList");
-		logger.debug("<<<<<  flight Schedule size >>>>" + flightSchedules.size());
+		
+		List<FlightSchedule> matchedFlight = null;
+		
+		if(passengerNum > 0)
+		{
+			matchedFlight = FlightSearchService.searchForMatchingFlight(flightSchedules, searchParam);
+			
+			if(matchedFlight != null)
+			{
+				
+			}
+			else
+			{
+				request.setAttribute("msg", "No matching flight(s) found in the admin flight schedules");
+			}
+		}
+		else
+		{
+			request.setAttribute("msg", "Number of passenger must be greater than 0");
+		}
 		
 		
 	}
