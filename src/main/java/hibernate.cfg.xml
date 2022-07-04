@@ -13,12 +13,12 @@
   <property name="hibernate.format_sql"> true </property>
   <!-- Enable Hibernate's automatic session context management 
   <property name="current_session_context_class">thread</property>-->
-  
-  
+ 
   <mapping class="com.flyaway.entities.CityAirport"/>
   <mapping class="com.flyaway.entities.Airline"/>
   <mapping class="com.flyaway.entities.FlightSchedule"/> 
   <mapping class="com.flyaway.entities.FlightBooking"/>
   <mapping class="com.flyaway.entities.Customer"/>
+  <mapping class="com.flyaway.entities.UserMgmt"/>
  </session-factory>
 </hibernate-configuration>
