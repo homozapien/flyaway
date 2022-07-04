@@ -1,3 +1,4 @@
+com/flyaway/service/FlightSearchService.class
 com/flyaway/service/LoginService.class
 com/flyaway/entities/Airline.class
 com/flyaway/entities/FlightSchedule.class
@@ -16,6 +17,7 @@ com/flyaway/pojo/Login.class
 com/flyaway/entities/Customer.class
 com/flyaway/controller/DataloaderController.class
 com/flyaway/service/DummyPaymentService.class
+com/flyaway/pojo/FlightSearch.class
 com/flyaway/dao/AirlineDAO.class
 com/flyaway/dao/CityAiportDAO.class
 com/flyaway/dao/FlightScheduleDAO.class

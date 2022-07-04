@@ -47,6 +47,12 @@ public class FlightSearch
 	public void setTravelDate(Date travelDate) {
 		this.travelDate = travelDate;
 	}
+
+	@Override
+	public String toString() {
+		return "FlightSearch [deptCity=" + deptCity + ", deptCntry=" + deptCntry + ", destCity=" + destCity
+				+ ", destCntry=" + destCntry + ", travelDate=" + travelDate + "]";
+	}
 	
 	
 	

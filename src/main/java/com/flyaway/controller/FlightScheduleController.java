@@ -60,8 +60,6 @@ public class FlightScheduleController extends HttpServlet {
 		String ticketPrice         = request.getParameter("ticketPrice");
 		String availableDate       = request.getParameter("availableDate");
 		
-		logger.debug("Date of travel is >> " + availableDate);
-		
 		FlightSchedule schedule = new FlightSchedule();
 				
 		

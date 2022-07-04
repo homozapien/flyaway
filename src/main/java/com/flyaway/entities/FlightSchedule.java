@@ -24,7 +24,10 @@ public class FlightSchedule implements Serializable
 	private String flightId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "airline_id", referencedColumnName = "id")
+	@JoinColumns({
+		@JoinColumn(name = "airline_id", referencedColumnName = "id")
+		//@JoinColumn(name = "airline_name", referencedColumnName = "name")
+    })
 	private Airline airline;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -42,19 +45,11 @@ public class FlightSchedule implements Serializable
 	})
 	private CityAirport cityAirportDest; 
 	
-	
-											
-
-	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "flightSchedule")
-	private List<FlightBooking> listOfFlightBookings; */
-
-	
 
 	private int numOfConnections;
 	private double ticketPrice;
 
-	private Date availableDate; // date this flight is available....
-								// The key is: AirlineID, FlightNo, flightDate, and Departure city
+	private Date availableDate; 
 
 	public String getFlightId() {
 		return flightId;
@@ -113,12 +108,20 @@ public class FlightSchedule implements Serializable
 		this.cityAirportDest = cityAirportDest;
 	}
 
-	/*public List<FlightBooking> getListOfFlightBookings() {
-		return listOfFlightBookings;
+	@Override
+	public String toString() {
+		return "FlightSchedule [flightId=" + flightId + ", airline=" + getAirline().getId() + ", cityAirportDept=" + getCityAirportDept().getCity() + " " + getCityAirportDept().getCountry()
+				+ ", cityAirportDest=" + getCityAirportDest().getCity() + " " + getCityAirportDest().getCountry() + ", numOfConnections=" + numOfConnections + ", ticketPrice="
+				+ ticketPrice + ", availableDate=" + availableDate + "]";
 	}
-
-	public void setListOfFlightBookings(List<FlightBooking> listOfFlightBookings) {
-		this.listOfFlightBookings = listOfFlightBookings;
+	
+	/*@Override
+	public String toString() {
+		return "FlightSchedule [flightId=" + flightId + ", airline=" + airline.getId() + "-"+ airline.getName() + ", cityAirportDept=" + cityAirportDept.getCity() + " " + cityAirportDept.getCountry()
+				+ ", cityAirportDest=" + cityAirportDest.getCity() + " " + cityAirportDept.getCountry() + ", numOfConnections=" + numOfConnections + ", ticketPrice="
+				+ ticketPrice + ", availableDate=" + availableDate + "]";
 	} */
+
+	
 
 }

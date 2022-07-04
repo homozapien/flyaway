@@ -57,7 +57,6 @@ public class AirlineDAO
 				Query qry = session.createQuery("select airline from Airline airline");
 				listOfairlines = qry.list();
 				
-				logger.debug(">>>>> Number of airlines found is  <<<<<" +listOfairlines.size() );
 		 }
 		 catch(Exception e)
 		 {

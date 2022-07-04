@@ -8,11 +8,29 @@
 </head>
 <body>
 
+<c:if test="${requestScope.msg != null && not empty requestScope.msg}">
+					
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+			
+			<div class="row mb-3">
+							<div class="alert alert-danger">${requestScope.msg}</div>								
+						</div>
+			
+			</div>
+		</div>
+	</div>
+	
+	</c:if>
+
 	<c:choose>
 
-		<c:when test="${sessionScope.scheduleList != null && not empty sessionScope.scheduleList}">
-			
-			<button class="btn btn-dark" onclick="history.back()">Go Back</button>		
+		<c:when
+			test="${sessionScope.scheduleList != null && not empty sessionScope.scheduleList}">
+
+			<button class="btn btn-dark" onclick="history.back()">Go
+				Back</button>
 			<hr>
 
 			<div class="container">
@@ -21,14 +39,9 @@
 
 					<div class="card">
 						<div class="card-body">
-						
-						<!-- <c:set var = "scheduleListSS" scope = "session" value="${scheduleList}" />
-						<c:set var = "scheduleListRS" scope = "request" value="${scheduleList}" /> -->
-							
+
 							<form action="FlightSearchController" method="post"
 								class='form-horizontal' role="form">
-								
-								
 
 								<div class="row mb-3">
 
@@ -86,7 +99,8 @@
 
 								<div class="row mb-3">
 
-									<label for="numOfPassengers" class="col-sm-2 col-form-label">Passenger# </label>
+									<label for="numOfPassengers" class="col-sm-2 col-form-label">Passenger#
+									</label>
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
@@ -103,7 +117,7 @@
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
-											<input type="date" id="travelDate" name="availableDate"
+											<input type="date" id="travelDate" name="travelDate"
 												placeholder="Select Date of Travel " required>
 
 
@@ -148,7 +162,7 @@
 										<td>Connections</td>
 										<td>Ticket Price</td>
 									</tr>
-								</thead>						
+								</thead>
 								<c:forEach items="${sessionScope.scheduleList}" var="schedule">
 									<tr>
 										<td>${schedule.flightId}</td>
@@ -179,13 +193,15 @@
 						<div class="row mb-3">
 							<div class="alert alert-danger">
 								<p>Error! Flight Search can't proceed.</p>
-								<p>Administrator has not created any flight schedules! Try again later</p>									
+								<p>Administrator has not created any flight schedules! Try
+									again later</p>
 							</div>
 						</div>
 
 
 						<div class="row mb-3">
-							<a href="customer.jsp" class="btn btn-primary stretched-link">Customer Home</a>								
+							<a href="customer.jsp" class="btn btn-primary stretched-link">Customer
+								Home</a>
 						</div>
 
 					</div>

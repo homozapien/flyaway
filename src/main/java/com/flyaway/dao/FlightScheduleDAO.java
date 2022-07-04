@@ -40,7 +40,7 @@ public class FlightScheduleDAO
 		 finally
 		 {
 			 logger.debug(">>> Closing in finally of createFlightSchedule HibernateUtil.closeSession() <<<");
-			 HibernateUtil.closeSession();
+			// HibernateUtil.closeSession();
 		 }
 	    	
 	    }

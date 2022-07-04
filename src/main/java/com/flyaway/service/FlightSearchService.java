@@ -19,9 +19,10 @@ public class FlightSearchService {
 				.filter(schedule -> schedule.getCityAirportDept().getCity().equalsIgnoreCase(flightSerach.getDeptCity())
 						         && schedule.getCityAirportDept().getCountry().equalsIgnoreCase(flightSerach.getDeptCntry())
 						         && schedule.getCityAirportDest().getCity().equalsIgnoreCase(flightSerach.getDestCity())
-						         && schedule.getCityAirportDest().getCountry().equalsIgnoreCase(flightSerach.getDestCntry())
-						         && (schedule.getAvailableDate().compareTo(flightSerach.getTravelDate()) == 0))
+						         && schedule.getCityAirportDest().getCountry().equalsIgnoreCase(flightSerach.getDestCntry()))
+						        // && (schedule.getAvailableDate().compareTo(flightSerach.getTravelDate()) == 0))
 				.sorted(groupByComparator).collect(Collectors.toList());
+		
 		return result;
 	}
 }

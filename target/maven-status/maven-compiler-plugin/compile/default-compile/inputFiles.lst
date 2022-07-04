@@ -15,9 +15,11 @@
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/AirlineService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/CustomerDataLoader.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/dao/AirlineDAO.java
+/Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/FlightSearchService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/entities/Customer.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/FlightScheduleService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/dao/LoginDAO.java
+/Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/pojo/FlightSearch.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/FlightScheduleController.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/CityAirportController.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/DummyPaymentService.java

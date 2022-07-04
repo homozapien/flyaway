@@ -11,6 +11,8 @@
   <property name="hibernate.hbm2ddl.auto">update</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql"> true </property>
+  <!-- Enable Hibernate's automatic session context management 
+  <property name="current_session_context_class">thread</property>-->
   
   
   <mapping class="com.flyaway.entities.CityAirport"/>
