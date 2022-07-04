@@ -166,7 +166,7 @@
 								<c:forEach items="${sessionScope.scheduleList}" var="schedule">
 									<tr>
 										<td>${schedule.flightId}</td>
-										<td>${schedule.airline.id}</td>
+										<td><a href="airlinePopUp.jsp">${schedule.airline.id}</a></td>
 										<td>${schedule.getCityAirportDept().getCity()}</td>
 										<td>${schedule.getCityAirportDept().getCountry()}</td>
 										<td>${schedule.getCityAirportDest().getCity()}</td>

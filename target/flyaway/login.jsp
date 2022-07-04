@@ -54,8 +54,13 @@
 					
 					<hr>
                <div class="row mb-3">
-                 <label class="col-sm-2 col-form-label"></label>
-                 <div class="col-sm-10">
+                
+                 <!--  <label class="col-sm-2 col-form-label"></label> -->
+                  <div class="col-sm-2">
+                  <a href="signUp.jsp">SignUp</a>
+                  </div>
+                 <div class="col-sm-8">
+                  
 					<button type="submit" class="btn btn-primary">Submit</button>
 					<input class="btn btn-secondary" type="reset" value="Reset">
 					</div>
