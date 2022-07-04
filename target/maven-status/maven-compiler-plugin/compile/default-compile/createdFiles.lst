@@ -2,6 +2,7 @@ com/flyaway/service/FlightSearchService.class
 com/flyaway/service/LoginService.class
 com/flyaway/entities/Airline.class
 com/flyaway/entities/FlightSchedule.class
+com/flyaway/entities/UserMgmt.class
 com/flyaway/entities/CityAirport.class
 com/flyaway/util/HibernateUtil.class
 com/flyaway/controller/LoginController.class

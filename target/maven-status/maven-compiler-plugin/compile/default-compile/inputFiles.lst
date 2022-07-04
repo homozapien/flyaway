@@ -14,6 +14,7 @@
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/launcher/Main.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/AirlineService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/CustomerDataLoader.java
+/Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/entities/UserMgmt.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/dao/AirlineDAO.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/FlightSearchService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/entities/Customer.java
