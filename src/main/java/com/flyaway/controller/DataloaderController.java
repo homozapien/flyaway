@@ -5,6 +5,9 @@ import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
 import com.flyaway.entities.FlightSchedule;
@@ -19,6 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class DataloaderController
  */
 public class DataloaderController extends HttpServlet {
+	private static final Logger logger = LogManager.getLogger(DataloaderController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -34,7 +38,9 @@ public class DataloaderController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		List<FlightSchedule> flightSchedules = new FlightScheduleService().getAllFlightSchedules();
 		request.setAttribute("scheduleList", flightSchedules);
         
@@ -43,6 +49,8 @@ public class DataloaderController extends HttpServlet {
         
         List<CityAirport> airports = new CityAirportService().getAllCityAirports();
         request.setAttribute("airportList", airports);  
+        
+        logger.debug(getServletInfo());
         
         request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
 	}

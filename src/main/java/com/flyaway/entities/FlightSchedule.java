@@ -13,9 +13,10 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "flight_schedules")
+@Table(name = "flight_schedules" )
 public class FlightSchedule implements Serializable
 {
 	private static final long serialVersionUID = 1L;

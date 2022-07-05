@@ -10,18 +10,22 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+
 
 @Entity
 @Table(name = "usermgmt")
+@DynamicInsert
 public class UserMgmt implements Serializable
 {
 	private static final long serialVersionUID = 3756680645803624405L;
 	@Id
-	@Column(columnDefinition = "varchar(255) default 'admin@flyaway.com'")
+	@ColumnDefault("'admin@flyaway.com'")
 	private String emailId;  
-	@Column(columnDefinition = "varchar(255) default 'admin'")
+	@ColumnDefault("'admin'")
 	private String password; 
-	@Column(columnDefinition = "varchar(255) default 'Admin'")
+	@ColumnDefault("'Admin'")
 	private String typeOfUser;	
 	
 	public UserMgmt() {

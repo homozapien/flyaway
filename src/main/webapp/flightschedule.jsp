@@ -118,8 +118,8 @@
 								
 								<div class="row mb-3">
 
-									<label for="ticketPrice" class="col-sm-2 col-form-label">Destination
-										Country</label>
+									<label for="ticketPrice" class="col-sm-2 col-form-label">Ticket Price
+										</label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">

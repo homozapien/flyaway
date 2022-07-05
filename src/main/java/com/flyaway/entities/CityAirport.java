@@ -20,9 +20,9 @@ public class CityAirport implements Serializable
 	private static final long serialVersionUID = 3756680645803624405L;
 	@Id
 	private String code;      //unique airport code 
-	@Column(unique=false)
+	//@Column(unique=false)
 	private String city;      //city (model: source or destination)
-	@Column(unique=false)
+	//@Column(unique=false)
 	private String country;   //country where city is located
 	
 	/* @OneToMany(fetch = FetchType.LAZY,   		   

@@ -135,7 +135,7 @@
 									</c:when>
 									<c:otherwise>
 										<br>
-										<div class="alert alert-info">No Airline has been setup by admin</div>
+										<div class="alert alert-info">No Flight Schedule has been setup by admin</div>
 									</c:otherwise>
 								</c:choose>
 							</div>

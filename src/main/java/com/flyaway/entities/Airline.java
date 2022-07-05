@@ -11,10 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "airlines")
+@Table(name = "airlines", uniqueConstraints = { @UniqueConstraint(columnNames = { "id", "name"})})
 public class Airline implements Serializable
 {
 	private static final long serialVersionUID = 1L;

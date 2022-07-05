@@ -47,12 +47,12 @@ public class CityAirportController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		response.setContentType("text/html");
+		
 		String code     =      request.getParameter("airportcode");
 		String city     =      request.getParameter("airportcity");
 		String country  =      request.getParameter("airportcountry"); 
 				
-		//CityAirport cityAiport = new CityAirport(code, city, country );
-		
 		CityAirportService  service = new CityAirportService ();
 		String result =    service.createCityAirport(new CityAirport(code, city, country ));
 		
@@ -62,10 +62,12 @@ public class CityAirportController extends HttpServlet {
 		if(result.equals("Success")) 
 		{
 			rd1.forward(request, response);
+			//response.sendRedirect("success.jsp");
 	    }
 		else
 		{
 			rd2.forward(request, response);
+			//response.sendRedirect("failure.jsp");
 	   }
 		
 	}

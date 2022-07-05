@@ -38,7 +38,7 @@ public class FlightScheduleController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -60,8 +60,9 @@ public class FlightScheduleController extends HttpServlet {
 		String ticketPrice         = request.getParameter("ticketPrice");
 		String availableDate       = request.getParameter("availableDate");
 		
+		logger.debug(">>>>>>>> Available date : " + availableDate + " <<<<<<<");
+		
 		FlightSchedule schedule = new FlightSchedule();
-				
 		
 		schedule.setFlightId(flightId);
 		
@@ -82,6 +83,8 @@ public class FlightScheduleController extends HttpServlet {
 		schedule.setNumOfConnections(Integer.valueOf(numOfConnections));
 		schedule.setTicketPrice(Double.valueOf(ticketPrice));
 		schedule.setAvailableDate(Date.valueOf(availableDate));
+		
+		logger.debug(">>>>>>>> Available schedule.setAvailableDate : " + schedule.getAvailableDate() + " <<<<<<<");
 		
 		FlightScheduleService scheduleService = new FlightScheduleService();
 		

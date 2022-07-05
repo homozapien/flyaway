@@ -37,7 +37,7 @@
 									</tr>
 								</thead>
 								<c:forEach items="${requestScope.matchedFlightList}" var="schedule">
-									<tr>
+									<tr id="${schedule.flightId}">
 										<td>${schedule.flightId}</td>
 										<td>${schedule.airline.id}</td>
 										<td>${schedule.getCityAirportDept().getCity()}</td>
@@ -47,7 +47,7 @@
 										<td>${schedule.availableDate}</td>
 										<td>${schedule.numOfConnections}</td>
 										<td>${schedule.ticketPrice}</td>
-										<td><button type="submit" class="btn btn-primary">Book Me</button></td>
+										<td><button type="submit" class="btn btn-primary" onclick="show()">Book Me</button></td>
 									</tr>
 
 								</c:forEach>

@@ -56,9 +56,10 @@
 											name="airportcountry" aria-label=".form-select-sm example" required>
 											<option selected>Open this select menu</option>
 											<option value="USA">USA</option>
-											<option value="NGR">Nigeria</option>
-											<option value="IND">India</option>
-											<option value="FR">France</option>
+											<option value="Nigeria">Nigeria</option>
+											<option value="India">India</option>
+											<option value="France">France</option>
+											<option value="UAE">UAE</option>
 										</select>
 									</div>
 								</div>

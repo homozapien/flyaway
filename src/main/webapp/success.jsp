@@ -22,7 +22,7 @@
 							<div class="alert alert-success">Success! Well done its submitted.</div>								
 						</div>
 						<div class="row mb-3">
-							<a href="DataloaderController" class="btn btn-primary stretched-link">Dashboard</a>
+							<a href="DataloaderController" class="btn btn-primary stretched-link">Dashboard</a> 
 						</div>
 						
 							<div class="row mb-3">
