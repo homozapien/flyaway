@@ -2,7 +2,7 @@ package com.flyaway.controller;
 
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,15 +52,11 @@ public class FlightScheduleController extends HttpServlet {
 		
 		String flightId            = request.getParameter("flightId");
 		String airlineId           = request.getParameter("airlineId");
-		String deptCity            = request.getParameter("deptCity");
-		String destCity            = request.getParameter("destCity");
-		String deptCntry           = request.getParameter("deptCntry");
-		String destCntry           = request.getParameter("destCntry");
+		String deptAirport         = request.getParameter("deptAirport");
+		String destAirport         = request.getParameter("destAirport");		 
 		String numOfConnections    = request.getParameter("numOfConnections");
 		String ticketPrice         = request.getParameter("ticketPrice");
 		String availableDate       = request.getParameter("availableDate");
-		
-		logger.debug(">>>>>>>> Available date : " + availableDate + " <<<<<<<");
 		
 		FlightSchedule schedule = new FlightSchedule();
 		
@@ -70,21 +66,18 @@ public class FlightScheduleController extends HttpServlet {
 		airline.setId(airlineId);
 		schedule.setAirline(airline);
 		
-		CityAirport deptCityCntry  = new CityAirport();
-		deptCityCntry.setCity(deptCity);
-		deptCityCntry.setCountry(deptCntry);
-		schedule.setCityAirportDept(deptCityCntry);
+		CityAirport deptCityAirport = new CityAirport();
+		deptCityAirport.setCode(deptAirport);
+		schedule.setCityAirportDept(deptCityAirport);
 		
-		CityAirport destCityCntry  = new CityAirport();
-		destCityCntry.setCity(destCity);
-		destCityCntry.setCountry(destCntry);	
-		schedule.setCityAirportDest(destCityCntry);
+		CityAirport destCityAirport  = new CityAirport();
+		destCityAirport.setCode(destAirport);
+		schedule.setCityAirportDest(destCityAirport);
 		
 		schedule.setNumOfConnections(Integer.valueOf(numOfConnections));
 		schedule.setTicketPrice(Double.valueOf(ticketPrice));
-		schedule.setAvailableDate(Date.valueOf(availableDate));
+		schedule.setAvailableDate(LocalDate.parse(availableDate));
 		
-		logger.debug(">>>>>>>> Available schedule.setAvailableDate : " + schedule.getAvailableDate() + " <<<<<<<");
 		
 		FlightScheduleService scheduleService = new FlightScheduleService();
 		

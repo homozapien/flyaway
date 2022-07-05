@@ -1,7 +1,7 @@
 package com.flyaway.controller;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -50,18 +50,14 @@ public class FlightSearchController extends HttpServlet {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
 
-		String deptCity = request.getParameter("deptCity");
-		String deptCntry = request.getParameter("deptCntry");
-		String destCity = request.getParameter("destCity");
-		String destCntry = request.getParameter("destCntry");
-		int passengerNum = Integer.valueOf(request.getParameter("numOfPassengers")); // check to be greater than Zero
-		Date travelDate = Date.valueOf(request.getParameter("travelDate"));
+		String deptAirport = request.getParameter("deptAirport");
+		String destAirport = request.getParameter("destAirport");
+		LocalDate travelDate = LocalDate.parse(request.getParameter("travelDate"));
 
-		FlightSearch flightSearch = new FlightSearch(deptCity, deptCntry, destCity, destCntry, travelDate);
+		FlightSearch flightSearch = new FlightSearch(deptAirport, destAirport,travelDate);
 
 		HttpSession hs = request.getSession();
 
-		if (passengerNum > 0) {
 
 			List<FlightSchedule> flightSchedules = (List<FlightSchedule>) hs.getAttribute("scheduleList");
 
@@ -70,25 +66,16 @@ public class FlightSearchController extends HttpServlet {
 
 			if (matchedFlightList != null && !matchedFlightList.isEmpty()) {
 				
-				System.out.println(">>>>>>>Size mathched flight is " + matchedFlightList.size());
-				
-				matchedFlightList.forEach(System.out::println);
 				
 				request.setAttribute("matchedFlightList", matchedFlightList);
 				request.getRequestDispatcher("booking.jsp").forward(request, response);
 			} else {
 
 				request.setAttribute("msg",
-						"No matching flight(s) found in the admin flight schedules in the search param \n "
+						"No matching flight(s) found in the flight schedules for the search param \n "
 								+ flightSearch.toString());
 				request.getRequestDispatcher("flightsearch.jsp").include(request, response);
 			}
-		} else {
-			request.setAttribute("msg",
-					"Number of passenger must be greater than 0 in the search param \n " + flightSearch.toString());
-			request.getRequestDispatcher("flightsearch.jsp").include(request, response);
-		}
-
 	}
 
 }

@@ -69,6 +69,13 @@
   	<servlet-name>FlightSearchController</servlet-name>
   	<servlet-class>com.flyaway.controller.FlightSearchController</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>BookingController</display-name>
+  	<servlet-name>BookingController</servlet-name>
+  	<servlet-class>com.flyaway.controller.BookingController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>DataloaderController</servlet-name>
     <url-pattern>/DataloaderController</url-pattern>
@@ -84,5 +91,9 @@
   <servlet-mapping>
   	<servlet-name>FlightSearchController</servlet-name>
   	<url-pattern>/FlightSearchController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BookingController</servlet-name>
+  	<url-pattern>/BookingController</url-pattern>
   </servlet-mapping>
 </web-app>

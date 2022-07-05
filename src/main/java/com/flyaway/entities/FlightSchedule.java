@@ -1,19 +1,16 @@
 package com.flyaway.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.List;
+import java.time.LocalDate;
 
-
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "flight_schedules" )
@@ -32,25 +29,30 @@ public class FlightSchedule implements Serializable
 	private Airline airline;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({ @JoinColumn(name = "departureCity", referencedColumnName = "city"),
-			@JoinColumn(name = "departureCountry", referencedColumnName = "country")
-
-	})
+	@JoinColumn(name = "depart_airport", referencedColumnName = "code")
 	private CityAirport cityAirportDept; 
 											
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({ @JoinColumn(name = "destinationCity", referencedColumnName = "city"),
-			@JoinColumn(name = "destinationCountry", referencedColumnName = "country")
+	@JoinColumns({ @JoinColumn(name = "dest_airport", referencedColumnName = "code")
+			//@JoinColumn(name = "destinationCountry", referencedColumnName = "country")
 
 	})
 	private CityAirport cityAirportDest; 
+	
+	/*@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumns({ @JoinColumn(name = "depart_airport", referencedColumnName = "code"),
+		           @JoinColumn(name = "dest_airport", referencedColumnName = "code")
+
+	})
+	private CityAirport cityAirport; */
 	
 
 	private int numOfConnections;
 	private double ticketPrice;
 
-	private Date availableDate; 
+	@Basic
+	private LocalDate availableDate; 
 
 	public String getFlightId() {
 		return flightId;
@@ -68,11 +70,11 @@ public class FlightSchedule implements Serializable
 		this.airline = airline;
 	}
 
-	public Date getAvailableDate() {
+	public LocalDate getAvailableDate() {
 		return availableDate;
 	}
 
-	public void setAvailableDate(Date availableDate) {
+	public void setAvailableDate(LocalDate availableDate) {
 		this.availableDate = availableDate;
 	}
 
@@ -111,18 +113,18 @@ public class FlightSchedule implements Serializable
 
 	@Override
 	public String toString() {
-		return "FlightSchedule [flightId=" + flightId + ", airline=" + getAirline().getId() + ", cityAirportDept=" + getCityAirportDept().getCity() + " " + getCityAirportDept().getCountry()
-				+ ", cityAirportDest=" + getCityAirportDest().getCity() + " " + getCityAirportDest().getCountry() + ", numOfConnections=" + numOfConnections + ", ticketPrice="
+		return "FlightSchedule [flightId=" + flightId +  
+				 ", numOfConnections=" + numOfConnections + ", ticketPrice="
 				+ ticketPrice + ", availableDate=" + availableDate + "]";
 	}
 	
 	/*@Override
 	public String toString() {
-		return "FlightSchedule [flightId=" + flightId + ", airline=" + airline.getId() + "-"+ airline.getName() + ", cityAirportDept=" + cityAirportDept.getCity() + " " + cityAirportDept.getCountry()
-				+ ", cityAirportDest=" + cityAirportDest.getCity() + " " + cityAirportDept.getCountry() + ", numOfConnections=" + numOfConnections + ", ticketPrice="
+		return "FlightSchedule [flightId=" + flightId + ", airline=" + getAirline().getId() + ", cityAirportDept=" + getCityAirportDept().getCode() 
+				+ ", cityAirportDest=" + getCityAirportDest().getCode() + ", numOfConnections=" + numOfConnections + ", ticketPrice="
 				+ ticketPrice + ", availableDate=" + availableDate + "]";
-	} */
-
+	}*/
+	
 	
 
 }

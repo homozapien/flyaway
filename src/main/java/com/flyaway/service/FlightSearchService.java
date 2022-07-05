@@ -13,15 +13,15 @@ public class FlightSearchService {
 	{
 		Comparator<FlightSchedule> groupByComparator = Comparator.comparing(FlightSchedule::getFlightId)
 				                                                 .thenComparing(FlightSchedule::getNumOfConnections)
-				                                                 .thenComparing(FlightSchedule::getTicketPrice);
-				                                     	
+				                                                 .thenComparing(FlightSchedule::getTicketPrice);		                                     	
 		List<FlightSchedule> result = scheduleList.stream()
-				.filter(schedule -> schedule.getCityAirportDept().getCity().equalsIgnoreCase(flightSerach.getDeptCity())
-						         && schedule.getCityAirportDept().getCountry().equalsIgnoreCase(flightSerach.getDeptCntry())
-						         && schedule.getCityAirportDest().getCity().equalsIgnoreCase(flightSerach.getDestCity())
-						         && schedule.getCityAirportDest().getCountry().equalsIgnoreCase(flightSerach.getDestCntry())
+				.filter(schedule -> schedule.getCityAirportDept().getCode().equalsIgnoreCase(flightSerach.getDeptCityAirport())
+						         && schedule.getCityAirportDest().getCode().equalsIgnoreCase(flightSerach.getDestCityAirport())
 						         && (schedule.getAvailableDate().compareTo(flightSerach.getTravelDate()) == 0))
-				.sorted(groupByComparator).collect(Collectors.toList());
+				.sorted(groupByComparator).collect(Collectors.toList()); 
+		
+		//System.out.println(flightSerach);
+		//result.forEach(System.out::println);
 		
 		return result;
 	}

@@ -50,68 +50,43 @@
 
 								<div class="row mb-3">
 
-									<label for="deptCity" class="col-sm-2 col-form-label">Departure
-										City </label>
+									<label for="deptAirport" class="col-sm-2 col-form-label">Departure
+										Airport </label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="deptCity" placeholder="Enter Flight Departure City "
+												name="deptAirport" placeholder="Enter Flight Departure Airport code "
 												required />
-										</div>
-									</div>
-								</div>
-								<div class="row mb-3">
-
-									<label for="deptCntry" class="col-sm-2 col-form-label">Departure
-										Country </label>
-
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="deptCntry"
-												placeholder="Enter Flight Departure Country " required />
-										</div>
-									</div>
-								</div>
-
-								<div class="row mb-3">
-
-									<label for="destCity" class="col-sm-2 col-form-label">Destination
-										City </label>
-
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="destCity" placeholder="Enter flight Destination City "
-												required />
-										</div>
-									</div>
-								</div>
-								<div class="row mb-3">
-
-									<label for="destCntry" class="col-sm-2 col-form-label">Destination
-										Country</label>
-
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="destCntry"
-												placeholder="Enter flight Destination Country " required />
 										</div>
 									</div>
 								</div>
 								
 								<div class="row mb-3">
 
-									<label for="numOfConnections" class="col-sm-2 col-form-label">Num Of Connections
+									<label for="destAirport" class="col-sm-2 col-form-label">Destination
+										Airport </label>
+
+									<div class="col-sm-10">
+										<div class="col-sm-10">
+											<input type="text" class="form-control input-sm"
+												name="destAirport" placeholder="Enter Flight Destination Airport code "
+												required /> 
+										</div>
+									</div>
+								</div>
+								
+								
+								<div class="row mb-3">
+
+									<label for="numOfConnections" class="col-sm-2 col-form-label">Flight Connections
 										</label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="numOfConnections"
-												placeholder="Enter number if flight connections " required />
+												name="numOfConnections" value="0"
+												placeholder="Enter number 0f flight connections " required />
 										</div>
 									</div>
 								</div>

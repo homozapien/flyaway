@@ -106,10 +106,8 @@
 												<tr>
 													<td>Flight Id</td>
 													<td>Airline Id</td>
-													<td>Depart City</td>
-													<td>Depart Country</td>
-													<td>Dest City</td>
-													<td>Dest Country</td>
+													<td>Departure Airport</td>
+													<td>Destination Airport</td>
 													<td>Available Date</td>
 													<td>Connections</td>
 													<td>Ticket Price</td>
@@ -118,11 +116,9 @@
 											<c:forEach items="${scheduleList}"  var="schedule">
 												<tr>
 													<td>${schedule.flightId}</td>
-													<td><a href="airlinePopUp.jsp">${schedule.airline.id}</a></td>
-													<td>${schedule.getCityAirportDept().getCity()}</td>
-													<td>${schedule.getCityAirportDept().getCountry()}</td>
-													<td>${schedule.getCityAirportDest().getCity()}</td>
-													<td>${schedule.getCityAirportDest().getCountry()}</td>
+													<td>${schedule.airline.id}</td>
+													<td>${schedule.getCityAirportDept().getCode()}</td>
+													<td>${schedule.getCityAirportDest().getCode()}</td>
 													<td>${schedule.availableDate}</td>
 													<td>${schedule.numOfConnections}</td>
 													<td>${schedule.ticketPrice}</td>

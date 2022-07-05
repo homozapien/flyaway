@@ -1,60 +1,43 @@
 package com.flyaway.pojo;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class FlightSearch 
 {
-	private String deptCity, deptCntry, destCity, destCntry;
-	private Date travelDate;
+	private String deptCityAirport,  destCityAirport;
+	private LocalDate travelDate;
 	
-
-	public FlightSearch(String deptCity, String deptCntry, String destCity, String destCntry, Date travelDate) {
+	public FlightSearch(String deptCityAirport, String destCityAirport, LocalDate travelDate) {
 		super();
-		this.deptCity = deptCity;
-		this.deptCntry = deptCntry;
-		this.destCity = destCity;
-		this.destCntry = destCntry;
+		this.deptCityAirport = deptCityAirport;
+		this.destCityAirport = destCityAirport;
 		this.travelDate = travelDate;
 	}
-	
-	public String getDeptCity() {
-		return deptCity;
+	public String getDeptCityAirport() {
+		return deptCityAirport;
 	}
-	public void setDeptCity(String deptCity) {
-		this.deptCity = deptCity;
+	public void setDeptCityAirport(String deptCityAirport) {
+		this.deptCityAirport = deptCityAirport;
 	}
-	public String getDeptCntry() {
-		return deptCntry;
+	public String getDestCityAirport() {
+		return destCityAirport;
 	}
-	public void setDeptCntry(String deptCntry) {
-		this.deptCntry = deptCntry;
+	public void setDestCityAirport(String destCityAirport) {
+		this.destCityAirport = destCityAirport;
 	}
-	public String getDestCity() {
-		return destCity;
-	}
-	public void setDestCity(String destCity) {
-		this.destCity = destCity;
-	}
-	public String getDestCntry() {
-		return destCntry;
-	}
-	public void setDestCntry(String destCntry) {
-		this.destCntry = destCntry;
-	}
-	public Date getTravelDate() {
+	public LocalDate getTravelDate() {
 		return travelDate;
 	}
-	public void setTravelDate(Date travelDate) {
+	public void setTravelDate(LocalDate travelDate) {
 		this.travelDate = travelDate;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "FlightSearch [deptCity=" + deptCity + ", deptCntry=" + deptCntry + ", destCity=" + destCity
-				+ ", destCntry=" + destCntry + ", travelDate=" + travelDate + "]";
+		return "FlightSearch [deptCityAirport=" + deptCityAirport + ", destCityAirport=" + destCityAirport
+				+ ", travelDate=" + travelDate + "]";
 	}
-	
-	
+
 	
 	
 

@@ -8,8 +8,10 @@
 </head>
 <body>
 
+<button class="btn btn-dark" onclick="history.back()">Go Back</button>
+				
 <c:if test="${requestScope.msg != null && not empty requestScope.msg}">
-					
+		<hr>			
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
@@ -29,10 +31,6 @@
 		<c:when
 			test="${sessionScope.scheduleList != null && not empty sessionScope.scheduleList}">
 
-			<button class="btn btn-dark" onclick="history.back()">Go
-				Back</button>
-			<hr>
-
 			<div class="container">
 				<div class="jumbotron">
 					<h2>FlyAway Customer Flight Search</h2>
@@ -45,67 +43,29 @@
 
 								<div class="row mb-3">
 
-									<label for="deptCity" class="col-sm-2 col-form-label">Departure
-										City </label>
+									<label for="deptAirport" class="col-sm-2 col-form-label">Departure
+										Airport </label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="deptCity" placeholder="Flight Departure City "
+												name="deptAirport" placeholder="Flight Departure Airport Code "
 												required />
 										</div>
 									</div>
 								</div>
+								
+
 								<div class="row mb-3">
 
-									<label for="deptCntry" class="col-sm-2 col-form-label">Departure
-										Country </label>
+									<label for="destAirport" class="col-sm-2 col-form-label">Destination
+										Airport </label>
 
 									<div class="col-sm-10">
 										<div class="col-sm-10">
 											<input type="text" class="form-control input-sm"
-												name="deptCntry" placeholder="Flight Departure Country "
+												name="destAirport" placeholder="Flight Destination Airport Code "
 												required />
-										</div>
-									</div>
-								</div>
-
-								<div class="row mb-3">
-
-									<label for="destCity" class="col-sm-2 col-form-label">Destination
-										City </label>
-
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="destCity" placeholder="Flight Destination City "
-												required />
-										</div>
-									</div>
-								</div>
-								<div class="row mb-3">
-
-									<label for="destCntry" class="col-sm-2 col-form-label">Destination
-										Country</label>
-
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="destCntry" placeholder="Flight Destination Country "
-												required />
-										</div>
-									</div>
-								</div>
-
-								<div class="row mb-3">
-
-									<label for="numOfPassengers" class="col-sm-2 col-form-label">Passenger#
-									</label>
-									<div class="col-sm-10">
-										<div class="col-sm-10">
-											<input type="text" class="form-control input-sm"
-												name="numOfPassengers" min="1"
-												placeholder="Number of Passengers " required />
 										</div>
 									</div>
 								</div>
@@ -143,7 +103,7 @@
 
 			<div class="container">
 				<div class="jumbotron">
-					<h4>Available Flight Schedule List</h4>
+					<h4>Schedule List (to be searched)</h4>
 
 					<div class="card">
 						<div class="card-body">
@@ -154,10 +114,8 @@
 									<tr>
 										<td>Flight Id</td>
 										<td>Airline Id</td>
-										<td>Depart City</td>
-										<td>Depart Country</td>
-										<td>Dest City</td>
-										<td>Dest Country</td>
+										<td>Depart Airport</td>
+										<td>Dest Airport</td>
 										<td>Available Date</td>
 										<td>Connections</td>
 										<td>Ticket Price</td>
@@ -166,11 +124,9 @@
 								<c:forEach items="${sessionScope.scheduleList}" var="schedule">
 									<tr>
 										<td>${schedule.flightId}</td>
-										<td><a href="airlinePopUp.jsp">${schedule.airline.id}</a></td>
-										<td>${schedule.getCityAirportDept().getCity()}</td>
-										<td>${schedule.getCityAirportDept().getCountry()}</td>
-										<td>${schedule.getCityAirportDest().getCity()}</td>
-										<td>${schedule.getCityAirportDest().getCountry()}</td>
+										<td>${schedule.airline.id}</td>
+										<td>${schedule.getCityAirportDept().getCode()}</td>
+										<td>${schedule.getCityAirportDest().getCode()}</td>
 										<td>${schedule.availableDate}</td>
 										<td>${schedule.numOfConnections}</td>
 										<td>${schedule.ticketPrice}</td>
