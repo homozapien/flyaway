@@ -9,6 +9,7 @@ import com.flyaway.entities.FlightBooking;
 import com.flyaway.entities.FlightSchedule;
 import com.flyaway.entities.Passenger;
 import com.flyaway.service.FlightBookingService;
+import com.flyaway.service.TicketPricingService;
 import com.flyaway.util.Helper;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -73,7 +74,15 @@ public class RegistrationController extends HttpServlet {
 		
 		if(result.equals("Success")) 
 		{
-			request.setAttribute("msg", "Booking successfully created; you need to make payment for confirmation");
+			
+			String ticketPrice = (String)request.getSession().getAttribute("ticketPrice");
+			String totalCharge = String.valueOf(TicketPricingService.calculateTicketPrice(ticketPrice, passengerNum));
+			
+			request.setAttribute("msg", "Booking refernce successfully created with Passenger details; you need to make payment for confirmation");
+			request.setAttribute("booking", booking);
+			request.setAttribute("passenger", passenger);
+			request.setAttribute("flightId", flightId);
+			request.setAttribute("totalCharge", totalCharge);
 			request.getRequestDispatcher("payment.jsp").forward(request, response);
 			
 	    }

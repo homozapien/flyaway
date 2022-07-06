@@ -9,6 +9,7 @@ com/flyaway/util/HibernateUtil.class
 com/flyaway/controller/LoginController.class
 com/flyaway/controller/AirlineController.class
 com/flyaway/service/FlightScheduleService.class
+com/flyaway/service/TicketPricingService.class
 com/flyaway/entities/FlightBooking.class
 com/flyaway/service/AirlineService.class
 com/flyaway/launcher/Main.class

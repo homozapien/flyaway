@@ -30,7 +30,7 @@
 
 		<c:when test="${sessionScope.user != null}">
 
-			<c:set var="userMgmt" scope="page" value="${sessionScope.user}" />
+			<!--<c:set var="userMgmt" scope="page" value="${sessionScope.user}" /> -->
 
 			<div class="container">
 				<div class="jumbotron">
@@ -68,7 +68,7 @@
 
 									<div class="col-sm-10">
 										<input type="text" class="form-control" name="bookedBy"
-											value="${userMgmt.getEmailId()}" readonly />
+											value="${sessionScope.user.getEmailId()}" readonly />
 									</div>
 								</div>
 								<hr>
@@ -113,7 +113,7 @@
 										Email</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control input-sm"
+										<input type="email" class="form-control input-sm"
 											name="pemailId" aria-label="default input"
 											placeholder="Enter passenger email id" required />
 									</div>

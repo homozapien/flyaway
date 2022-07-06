@@ -28,7 +28,8 @@
 
 	<form action="BookingController" method="post" id="bookingForm"
 		role="form">
-		<input type="hidden" id="FlightIdToBook" name="FlightIdToBook">
+		<input type="hidden" id="flightIdToBook" name="flightIdToBook">
+		<input type="hidden" id="ticketPrice" name="ticketPrice">
 		<c:if
 			test="${requestScope.matchedFlightList != null && not empty requestScope.matchedFlightList}">
 
@@ -79,8 +80,9 @@
 											<td>${schedule.numOfConnections}</td>
 											<td>${schedule.ticketPrice}</td>
 											<td><button type="submit" class="btn btn-primary"
-													onclick="document.getElementById('FlightIdToBook').value = '${schedule.flightId}';
-										         document.getElementById('bookingForm').submit();">
+													onclick="document.getElementById('flightIdToBook').value = '${schedule.flightId}';
+													         document.getElementById('ticketPrice').value = '${schedule.ticketPrice}';
+										                     document.getElementById('bookingForm').submit();">
 													Book Me</button></td>
 										</tr>
 
