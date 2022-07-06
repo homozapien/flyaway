@@ -62,12 +62,10 @@ public class CityAirportController extends HttpServlet {
 		if(result.equals("Success")) 
 		{
 			rd1.forward(request, response);
-			//response.sendRedirect("success.jsp");
 	    }
 		else
 		{
 			rd2.forward(request, response);
-			//response.sendRedirect("failure.jsp");
 	   }
 		
 	}

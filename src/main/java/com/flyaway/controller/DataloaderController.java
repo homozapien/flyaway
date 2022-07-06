@@ -50,8 +50,6 @@ public class DataloaderController extends HttpServlet {
         List<CityAirport> airports = new CityAirportService().getAllCityAirports();
         request.setAttribute("airportList", airports);  
         
-        logger.debug(getServletInfo());
-        
         request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
 	}
 

@@ -45,9 +45,6 @@ public class AirlineController extends HttpServlet {
 		//doGet(request, response);
 		String id       =      request.getParameter("airlineid");
 		String name     =      request.getParameter("airlinename");
-		
-		logger.debug(">>>> Airline identity " + id + " <<<<<");
-		logger.debug(">>>> Airline Name " + name + " <<<<<");
 				
 		Airline airline = new Airline();
 		airline.setId(id);

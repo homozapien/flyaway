@@ -12,5 +12,10 @@ public class FlightBookingService
     {
     	return dao.createBookingWithPassenger(booking) == 1 ? "Success" : "Failure";   	
     }
+    
+    public int updateBookingDetails(String flightId)
+	{
+    	return dao.updateBookingDetails(flightId);
+	}
 
 }

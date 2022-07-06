@@ -34,7 +34,7 @@
 					<h4>Flyaway Payment Registration</h4>
 					<div class="card">
 						<div class="card-body">
-							<form action="RegistrationController" method="post">
+							<form action="RegistrationController" method="get">
 							
 							 <div class="row mb-3">
 
@@ -89,7 +89,7 @@
 									<div class="col-sm-10">
 										<input type="text" class="form-control input-sm"
 											name="ticketPrice" aria-label="default input" value="${requestScope.totalCharge}"
-											readonly />
+											readonly  />
 									</div>
 								</div>
 								
@@ -101,7 +101,7 @@
 									<div class="col-sm-10">
 										<input type="text" class="form-control input-sm"
 											name="creditCard" aria-label="default input" placeholder="Enter credit card"
-											 />
+											 required/>
 									</div>
 								</div>
 								

@@ -9,6 +9,7 @@ import com.flyaway.entities.FlightBooking;
 import com.flyaway.entities.FlightSchedule;
 import com.flyaway.entities.Passenger;
 import com.flyaway.service.FlightBookingService;
+import com.flyaway.service.PaymentGatewayService;
 import com.flyaway.service.TicketPricingService;
 import com.flyaway.util.Helper;
 
@@ -35,7 +36,26 @@ public class RegistrationController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String flightId    = request.getParameter("flightId");
+		String bookingRef  = request.getParameter("bookingRef");
+		String totalCharge = request.getParameter("ticketPrice");
+		String creditCard  = request.getParameter("creditCard");
+		double amount = Double.valueOf(totalCharge);
+		
+		String result = PaymentGatewayService.performDummyPayment(creditCard, amount, "John", "Doe", "123", "05/99");
+		
+		if(result.equals("SUCCESS"))
+		{
+			FlightBookingService fsb = new FlightBookingService();
+			int count = fsb.updateBookingDetails(flightId);
+			
+			if(count > 0)
+			{
+				
+			}
+		}
+		
 	}
 
 	/**

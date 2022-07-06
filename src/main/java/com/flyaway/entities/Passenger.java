@@ -20,6 +20,7 @@ public class Passenger implements Serializable
 	private String firstname;
 	private String lastname;
 	private String emailId;
+	private String creditCard;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bookingId", referencedColumnName = "bookingId")
@@ -73,6 +74,14 @@ public class Passenger implements Serializable
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	
 
+	public String getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
+	}
+	
+    
 }

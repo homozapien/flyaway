@@ -8,37 +8,61 @@ import org.hibernate.Transaction;
 import com.flyaway.entities.FlightBooking;
 import com.flyaway.util.HibernateUtil;
 
-public class FlightBookingDao 
-{
+public class FlightBookingDao {
 	private static final Logger logger = LogManager.getLogger(FlightScheduleDAO.class);
-	
-	 public int createBookingWithPassenger(FlightBooking booking)
-	    {
-		 logger.debug(" >>>>> About to execute to Create Flight Booking With Passenger Details <<<<");
-	    	
-		 try(Session session = HibernateUtil.getSession();)			
-		 {
-			 
-			 Transaction tran = session.getTransaction();   
-			 tran.begin();
-				session.save(booking);
+
+	public int createBookingWithPassenger(FlightBooking booking) {
+		logger.debug(" >>>>> About to execute to Create Flight Booking With Passenger Details <<<<");
+
+		try (Session session = HibernateUtil.getSession();) {
+
+			Transaction tran = session.getTransaction();
+			tran.begin();
+			session.save(booking);
 			tran.commit();
 			logger.debug(">>>>> Successfully created a flight Booking Witg Passenger Details <<<<<");
 			return 1;
-				
-		 }
-		 catch(Exception e)
-		 {
-			 logger.catching(e);
-			 return 0;
-		 }
-		 finally
-		 {
-			 logger.debug(">>> Closing in finally of createBookingWithPassenger HibernateUtil.closeSession() <<<");
-			 HibernateUtil.closeSession();
-		 }
-	    }
 
-	 
-	 
+		} catch (Exception e) {
+			logger.catching(e);
+			return 0;
+		} finally {
+			logger.debug(">>> Closing in finally of createBookingWithPassenger HibernateUtil.closeSession() <<<");
+			HibernateUtil.closeSession();
+		}
+	}
+	
+	public int updateBookingDetails(String flightId)
+	{
+		try (Session session = HibernateUtil.getSession();) {
+
+			Transaction tran = session.getTransaction();
+			
+			
+			FlightBooking booking = session.get(FlightBooking.class, flightId);
+			
+			if(booking == null)
+			{
+				return 0;
+			}
+			else
+			{
+				tran.begin();
+				   booking.setIsFlightConfirmed("Y");
+				   session.update(booking); 
+				tran.commit();
+				return 1;
+				
+			}
+			
+		} catch (Exception e) {
+			logger.catching(e);
+			return 0;
+		} finally {
+			logger.debug(">>> Closing in finally of createBookingWithPassenger HibernateUtil.closeSession() <<<");
+			HibernateUtil.closeSession();
+		}	
+		
+	}
+
 }
