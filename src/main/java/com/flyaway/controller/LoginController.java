@@ -5,14 +5,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.flyaway.entities.FlightSchedule;
-import com.flyaway.pojo.Login;
-import com.flyaway.service.FlightScheduleService;
+import com.flyaway.entities.UserMgmt;
 import com.flyaway.service.LoginService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -55,40 +51,40 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		logger.debug(">>>>>>>>>>>>> log4j 2 is working in LoginController <<< ");
-		PrintWriter pw = response.getWriter();
 		
-		HttpSession hs = request.getSession();
-
 		response.setContentType("text/html");
+		HttpSession hs = request.getSession();
+		
+		PrintWriter pw = response.getWriter();
 
-		// Receive the value from view ie jsp
 		String email         = request.getParameter("email");
 		String password      = request.getParameter("password");
 		String typeOfUser    = request.getParameter("typeOfUser");
 
-		// create the JavaBean class object and set the value which receive from view.
-		Login login = new Login();
-		login.setEmail(email);
-		login.setPassword(password);
-		login.setTypeOfUser(typeOfUser);
+		UserMgmt userProfile = new UserMgmt();
+		
+		userProfile.setEmailId(email);
+		userProfile.setPassword(password);
+		userProfile.setTypeOfUser(typeOfUser);
 		
 		LoginService ls = new LoginService();
 		
 		//pass the login object to service class 
-		String result = ls.checkUser(login);
+		String result = ls.checkUser(userProfile);
+		
+		
 		RequestDispatcher rd1 = request.getRequestDispatcher("admin.jsp");
 		RequestDispatcher rd2 = request.getRequestDispatcher("index.jsp");
 		RequestDispatcher rd3 = request.getRequestDispatcher("customer.jsp");
 				
 		if(result.equals("adminSuccess")) 
 		{
-			hs.setAttribute("admin", login.getEmail());
+			hs.setAttribute("admin", userProfile);
 			rd1.forward(request, response);
 	    }
 		else if(result.equals("userSuccess"))
 		{
-			hs.setAttribute("user", login.getEmail());
+			hs.setAttribute("user", userProfile);
 			rd3.forward(request, response);
 	    }
 		else 

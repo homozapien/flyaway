@@ -1,0 +1,44 @@
+package com.flyaway.pojo;
+
+public class Logindddd {
+	
+	private String email, password, typeOfUser;
+	
+	
+	public Logindddd() {
+		
+	}
+
+	public Logindddd(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getTypeOfUser() {
+		return typeOfUser;
+	}
+
+	public void setTypeOfUser(String typeOfUser) {
+		this.typeOfUser = typeOfUser;
+	}
+	
+	
+
+}

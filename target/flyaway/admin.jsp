@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<button class="btn btn-dark" onclick="history.back()">Go Back</button>
+<hr>
+
 	<c:choose>
 
 		<c:when test="${sessionScope.admin != null}">
@@ -26,7 +29,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="changepassword.jsp">Change Password</a></td>
+							<td><a href="passwordmgmt.jsp">Change Password</a></td>
 							<td>Password Management</td>
 						</tr>
 						<tr>

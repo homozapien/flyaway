@@ -43,9 +43,12 @@ public class BookingController extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		
 		String FlightIdToBook     =      request.getParameter("FlightIdToBook");
-		int passengerNum = Integer.valueOf(request.getParameter("numOfPassengers")); 
+		int passengerNum          =      Integer.valueOf(request.getParameter("numOfPassengers")); 
 		
-		if (passengerNum > 0) {
+		if (passengerNum > 0) 
+		{
+			
+			//proceed to register page
 		
 		logger.debug(">>>>>>>>>>> Selected flight id to be booked is : " + FlightIdToBook + " <<<<<<");
 		pw.println(">>>>>>>>>>> Selected flight id to be booked is : " + FlightIdToBook + " <<<<<<");

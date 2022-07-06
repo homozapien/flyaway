@@ -14,8 +14,7 @@ com/flyaway/launcher/Main.class
 com/flyaway/init/FlyAwayServletContextListner.class
 com/flyaway/controller/CustomerDataLoader.class
 com/flyaway/service/CityAirportService.class
-com/flyaway/pojo/Login.class
-com/flyaway/entities/FlightSchedulebkp.class
+com/flyaway/controller/PasswordMgmtController.class
 com/flyaway/entities/Customer.class
 com/flyaway/controller/DataloaderController.class
 com/flyaway/service/DummyPaymentService.class
@@ -28,3 +27,4 @@ com/flyaway/dao/LoginDAO.class
 com/flyaway/controller/FlightScheduleController.class
 com/flyaway/controller/BookingController.class
 com/flyaway/controller/CityAirportController.class
+com/flyaway/pojo/Logindddd.class

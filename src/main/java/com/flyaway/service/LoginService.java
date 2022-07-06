@@ -1,58 +1,49 @@
 package com.flyaway.service;
 
 import com.flyaway.dao.LoginDAO;
-import com.flyaway.pojo.Login;
+import com.flyaway.entities.UserMgmt;
 
 public class LoginService {
 
 	LoginDAO loginDao = new LoginDAO();
 
-	public String checkUser(Login login)
+	public String checkUser(UserMgmt userProfile )
 	{
-		if(login.getTypeOfUser().equals("Admin")) 
+		if(userProfile.getTypeOfUser().equalsIgnoreCase("Admin")) 
 		{
-			/*if(login.getEmail().equals("admin@gmail.com") && login.getPassword().equals("admin")) {
+			if(loginDao.checkLoginDetails(userProfile)) {
 				return "adminSuccess";
 			}else {
 				return "adminFailure";
 			}
-			*/
-			return "adminSuccess";
+			
 		}
 		else 
 		{
-			String email    =  login.getEmail();
-			String password =  login.getPassword();
+			String email    =  userProfile.getEmailId();
 			
-			/*if(null != email && !email.isEmpty() && null != password && !password.isEmpty()) 
+			if(null != email && !email.isEmpty()) 
 			{
 				return "userSuccess";
 			}
 			else 
 			{
 				return "userFailure";
-			} */
+			} 
 			
-			return "userSuccess";
 		}
 
 	}
 
-	public String createUser(Login login)
+	public String changeAdminPassword(UserMgmt userProfile)
 	{
-		/*StringBuffer sb = new StringBuffer(login.getPassword());
-		String reversePassword = sb.reverse().toString();
-
-		login.setPassword(reversePassword);
-
-		if(ld.createLoginDetails(login)>0) 
+		if(loginDao.changeAdminPassword(userProfile) > 0) 
 		{
-			return "Account Created successfully";
+			return "Admin Password successfully updated";
 		}else {
-			return "Account didn't create";
-		} */
+			return "Admin Password not updated";
+		} 
 		
-		return "Account Created successfully";
 	}
 
 }

@@ -20,9 +20,6 @@ public class FlightSearchService {
 						         && (schedule.getAvailableDate().compareTo(flightSerach.getTravelDate()) == 0))
 				.sorted(groupByComparator).collect(Collectors.toList()); 
 		
-		//System.out.println(flightSerach);
-		//result.forEach(System.out::println);
-		
 		return result;
 	}
 }

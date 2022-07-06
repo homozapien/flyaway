@@ -9,7 +9,7 @@
 <body>
 
 <button class="btn btn-dark" onclick="history.back()">Go Back</button>
-				
+<hr>				
 <c:if test="${requestScope.msg != null && not empty requestScope.msg}">
 		<hr>			
 	<div class="container">
