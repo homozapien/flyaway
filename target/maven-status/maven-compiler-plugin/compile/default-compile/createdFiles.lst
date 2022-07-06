@@ -1,5 +1,6 @@
 com/flyaway/service/FlightSearchService.class
 com/flyaway/service/LoginService.class
+com/flyaway/controller/RegistrationController.class
 com/flyaway/entities/Airline.class
 com/flyaway/entities/FlightSchedule.class
 com/flyaway/entities/UserMgmt.class
@@ -12,12 +13,14 @@ com/flyaway/entities/FlightBooking.class
 com/flyaway/service/AirlineService.class
 com/flyaway/launcher/Main.class
 com/flyaway/init/FlyAwayServletContextListner.class
+com/flyaway/util/Helper.class
 com/flyaway/controller/CustomerDataLoader.class
 com/flyaway/service/CityAirportService.class
 com/flyaway/controller/PasswordMgmtController.class
-com/flyaway/entities/Customer.class
+com/flyaway/service/FlightBookingService.class
 com/flyaway/controller/DataloaderController.class
 com/flyaway/service/DummyPaymentService.class
+com/flyaway/dao/FlightBookingDao.class
 com/flyaway/pojo/FlightSearch.class
 com/flyaway/dao/AirlineDAO.class
 com/flyaway/dao/CityAiportDAO.class
@@ -27,4 +30,4 @@ com/flyaway/dao/LoginDAO.class
 com/flyaway/controller/FlightScheduleController.class
 com/flyaway/controller/BookingController.class
 com/flyaway/controller/CityAirportController.class
-com/flyaway/pojo/Logindddd.class
+com/flyaway/entities/Passenger.class

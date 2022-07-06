@@ -15,34 +15,39 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "flight_bookings")
+@Table(name = "flight_bookings", uniqueConstraints = { @UniqueConstraint(columnNames = { "bookingId", "flightId"})})
 public class FlightBooking implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String bookingId;         //booking Id
+	private String bookingId;         
 	
 	@OneToMany(cascade = CascadeType.ALL,
-			   fetch = FetchType.LAZY, 
+			  // fetch = FetchType.LAZY, 
 			   mappedBy = "flightBooking")  
-	private Set<Customer> setOfCustomers;
+	private Set<Passenger> passengers;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({ 
-		     @JoinColumn(name = "flightId",        referencedColumnName = "flightId"),		 
-			 @JoinColumn(name = "departureDate",    referencedColumnName = "availableDate")
-	})
+	@JoinColumn(name = "flightId",        referencedColumnName = "flightId")
 	private FlightSchedule flightSchedule; 
 	
-	
-	private Date returnDate;
-	private double ticketPrice;
 	private String isFlightConfirmed; //Y or N based on payment services 
 	private int numOfPassengers;
+	private String bookedBy;
+	
+	public FlightBooking(String bookingId, String isFlightConfirmed, int numOfPassengers, String bookedBy) {
+		super();
+		this.bookingId = bookingId;
+		this.isFlightConfirmed = isFlightConfirmed;
+		this.numOfPassengers = numOfPassengers;
+		this.bookedBy = bookedBy;
+	}
+	
 	
 	public String getBookingId() {
 		return bookingId;
@@ -51,31 +56,17 @@ public class FlightBooking implements Serializable
 		this.bookingId = bookingId;
 	}
 
-	public Date getReturnDate() {
-		return returnDate;
-	}
-	public void setReturnDate(Date returnDate) {
-		this.returnDate = returnDate;
-	}
-	public double getTicketPrice() {
-		return ticketPrice;
-	}
-	public void setTicketPrice(double ticketPrice) {
-		this.ticketPrice = ticketPrice;
-	}
 	
-	public Set<Customer> getSetOfCustomer() {
-		return setOfCustomers;
+	public Set<Passenger> getPassengers() {
+		return passengers;
 	}
-	public void setSetOfCustomer(Set<Customer> setOfCustomers) {
-		this.setOfCustomers = setOfCustomers;
+
+
+	public void setPassengers(Set<Passenger> passengers) {
+		this.passengers = passengers;
 	}
-	public Set<Customer> getSetOfCustomers() {
-		return setOfCustomers;
-	}
-	public void setSetOfCustomers(Set<Customer> setOfCustomers) {
-		this.setOfCustomers = setOfCustomers;
-	}
+
+
 	public int getNumOfPassengers() {
 		return numOfPassengers;
 	}
@@ -94,32 +85,11 @@ public class FlightBooking implements Serializable
 	public void setFlightSchedule(FlightSchedule flightSchedule) {
 		this.flightSchedule = flightSchedule;
 	}
-	
-	/*public FlightSchedule getFlightScheduleDeptCity() {
-		return flightScheduleDeptCity;
+	public String getBookedBy() {
+		return bookedBy;
 	}
-	public void setFlightScheduleDeptCity(FlightSchedule flightScheduleDeptCity) {
-		this.flightScheduleDeptCity = flightScheduleDeptCity;
-	}
-	public FlightSchedule getFlightScheduleDeptCntry() {
-		return flightScheduleDeptCntry;
-	}
-	public void setFlightScheduleDeptCntry(FlightSchedule flightScheduleDeptCntry) {
-		this.flightScheduleDeptCntry = flightScheduleDeptCntry;
-	}
-	public FlightSchedule getFlightScheduleDestCity() {
-		return flightScheduleDestCity;
-	}
-	public void setFlightScheduleDestCity(FlightSchedule flightScheduleDestCity) {
-		this.flightScheduleDestCity = flightScheduleDestCity;
-	}
-	public FlightSchedule getFlightScheduleDestCntry() {
-		return flightScheduleDestCntry;
-	}
-	public void setFlightScheduleDestCntry(FlightSchedule flightScheduleDestCntry) {
-		this.flightScheduleDestCntry = flightScheduleDestCntry; 
-	}*/
-
-	
+	public void setBookedBy(String bookedBy) {
+		this.bookedBy = bookedBy;
+	}	
 	
 }

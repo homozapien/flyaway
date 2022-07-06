@@ -83,6 +83,13 @@
   	<servlet-name>PasswordMgmtController</servlet-name>
   	<servlet-class>com.flyaway.controller.PasswordMgmtController</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>RegistrationController</display-name>
+  	<servlet-name>RegistrationController</servlet-name>
+  	<servlet-class>com.flyaway.controller.RegistrationController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>DataloaderController</servlet-name>
     <url-pattern>/DataloaderController</url-pattern>
@@ -106,5 +113,9 @@
   <servlet-mapping>
   	<servlet-name>PasswordMgmtController</servlet-name>
   	<url-pattern>/PasswordMgmtController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegistrationController</servlet-name>
+  	<url-pattern>/RegistrationController</url-pattern>
   </servlet-mapping>
 </web-app>

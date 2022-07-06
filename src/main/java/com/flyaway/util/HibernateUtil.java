@@ -43,7 +43,7 @@ public class HibernateUtil
 				    .addAnnotatedClass(Airline.class)
 				    .addAnnotatedClass(FlightSchedule.class)				    
 				    .addAnnotatedClass(FlightBooking.class)
-				    .addAnnotatedClass(Customer.class)
+				    .addAnnotatedClass(Passenger.class)
 				    .addAnnotatedClass(UserMgmt.class)
 					.buildSessionFactory(serviceRegistry);
 			logger.debug(">>>>>>>>>> Hibernate SessionFactory was successfully instantiated; and ready for usage  <<<<<<<<<<<<<");

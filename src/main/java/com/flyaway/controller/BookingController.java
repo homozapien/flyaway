@@ -31,6 +31,7 @@ public class BookingController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//load customers bookings
 	}
 
 	/**
@@ -42,16 +43,16 @@ public class BookingController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		
-		String FlightIdToBook     =      request.getParameter("FlightIdToBook");
+		String flightIdToBook     =      request.getParameter("FlightIdToBook");
 		int passengerNum          =      Integer.valueOf(request.getParameter("numOfPassengers")); 
 		
 		if (passengerNum > 0) 
 		{
 			
 			//proceed to register page
-		
-		logger.debug(">>>>>>>>>>> Selected flight id to be booked is : " + FlightIdToBook + " <<<<<<");
-		pw.println(">>>>>>>>>>> Selected flight id to be booked is : " + FlightIdToBook + " <<<<<<");
+		request.setAttribute("flightIdToBook", flightIdToBook);
+		request.setAttribute("passengerNum", passengerNum);
+		request.getRequestDispatcher("register.jsp").include(request, response);
 		
 		}
 		else
