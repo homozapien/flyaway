@@ -44,6 +44,7 @@ public class CityAirport implements Serializable
 	}
 	
 	
+	
 	public CityAirport() {
 		super();		
 	}

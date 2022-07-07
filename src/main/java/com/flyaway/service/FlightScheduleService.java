@@ -17,7 +17,10 @@ public class FlightScheduleService
     	
     }
     
-   
+    public FlightSchedule getFlightScheduleDetails(String flightId)
+    {
+    	return dao.getFlightScheduleDetails(flightId);
+    }
     
     public List<FlightSchedule> getAllFlightSchedules()
     {

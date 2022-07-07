@@ -35,6 +35,15 @@ public class Passenger implements Serializable
 		this.emailId = emailId;
 	}
 
+	
+	
+	public Passenger() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public String getPassengerId() {
 		return passengerId;
 	}

@@ -49,6 +49,14 @@ public class FlightBooking implements Serializable
 	}
 	
 	
+	
+	public FlightBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public String getBookingId() {
 		return bookingId;
 	}

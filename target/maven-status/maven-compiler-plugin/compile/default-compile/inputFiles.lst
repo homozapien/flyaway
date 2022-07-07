@@ -3,6 +3,7 @@
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/dao/FlightScheduleDAO.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/DataloaderController.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/init/FlyAwayServletContextListner.java
+/Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/PaymentGatewayService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/TicketPricingService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/entities/CityAirport.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/dao/CityAiportDAO.java
@@ -28,7 +29,6 @@
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/pojo/FlightSearch.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/FlightScheduleController.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/CityAirportController.java
-/Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/service/DummyPaymentService.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/AirlineController.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/entities/FlightBooking.java
 /Users/baknaf/WorkShop/DEV/eclipse/current/workspace/flyaway/src/main/java/com/flyaway/controller/PasswordMgmtController.java

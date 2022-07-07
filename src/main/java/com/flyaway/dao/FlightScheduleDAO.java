@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 
 import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
+import com.flyaway.entities.FlightBooking;
 import com.flyaway.entities.FlightSchedule;
 import com.flyaway.util.HibernateUtil;
 
@@ -71,6 +72,21 @@ public class FlightScheduleDAO
 	   	 return listOfschedules;
 	    }
 	 
+	 
+	 public FlightSchedule getFlightScheduleDetails(String flightId)
+	    {
+		 try (Session session = HibernateUtil.getSession();) {
+
+				return session.get(FlightSchedule.class, flightId);
+				
+			} catch (Exception e) {
+				logger.catching(e);
+				return null;
+			} finally {
+				logger.debug(">>> Closing in finally of getFlightScheduleDetails HibernateUtil.closeSession() <<<");
+				HibernateUtil.closeSession();
+			}	
+	    }
 	
 
 }

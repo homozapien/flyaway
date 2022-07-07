@@ -50,6 +50,13 @@ public class FlightSchedule implements Serializable
 
 	private int numOfConnections;
 	private double ticketPrice;
+	
+	
+
+	public FlightSchedule() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Basic
 	private LocalDate availableDate; 

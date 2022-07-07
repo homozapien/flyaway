@@ -3,12 +3,14 @@ package com.flyaway.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.flyaway.entities.FlightBooking;
 import com.flyaway.entities.FlightSchedule;
 import com.flyaway.entities.Passenger;
 import com.flyaway.service.FlightBookingService;
+import com.flyaway.service.FlightScheduleService;
 import com.flyaway.service.PaymentGatewayService;
 import com.flyaway.service.TicketPricingService;
 import com.flyaway.util.Helper;
@@ -48,12 +50,27 @@ public class RegistrationController extends HttpServlet {
 		if(result.equals("SUCCESS"))
 		{
 			FlightBookingService fsb = new FlightBookingService();
-			int count = fsb.updateBookingDetails(flightId);
+			int count = fsb.updateBookingDetails(bookingRef);
 			
 			if(count > 0)
 			{
+				//retrieve booking details and forward to confirmation page
+				List<Passenger> listOfPassengers =   fsb.findPassengersBookingDetail(bookingRef);
+				FlightBooking   flightBooking    =   fsb.findABookingDetail(bookingRef);
+				FlightScheduleService fss        =   new FlightScheduleService();
+				FlightSchedule flightSchedule    =   fss.getFlightScheduleDetails(flightId);
 				
+				request.setAttribute("listOfPassengers", listOfPassengers);
+				request.setAttribute("flightBooking",    flightBooking);
+				request.setAttribute("flightSchedule",   flightSchedule);				
+				request.setAttribute("msg", "Booking payment was successfull and your flight booking is confirmed!");
+				
+				request.getRequestDispatcher("confirmation.jsp").forward(request, response);
 			}
+		}
+		else
+		{
+			
 		}
 		
 	}

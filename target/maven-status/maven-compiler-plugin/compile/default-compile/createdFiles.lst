@@ -3,6 +3,7 @@ com/flyaway/service/LoginService.class
 com/flyaway/controller/RegistrationController.class
 com/flyaway/entities/Airline.class
 com/flyaway/entities/FlightSchedule.class
+com/flyaway/service/PaymentGatewayService.class
 com/flyaway/entities/UserMgmt.class
 com/flyaway/entities/CityAirport.class
 com/flyaway/util/HibernateUtil.class
@@ -20,7 +21,6 @@ com/flyaway/service/CityAirportService.class
 com/flyaway/controller/PasswordMgmtController.class
 com/flyaway/service/FlightBookingService.class
 com/flyaway/controller/DataloaderController.class
-com/flyaway/service/DummyPaymentService.class
 com/flyaway/dao/FlightBookingDao.class
 com/flyaway/pojo/FlightSearch.class
 com/flyaway/dao/AirlineDAO.class

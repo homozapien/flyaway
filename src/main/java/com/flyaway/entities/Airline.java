@@ -30,7 +30,12 @@ public class Airline implements Serializable
 	//@JoinColumn(name = "AirlineId")	//@JoinColumn(name = "id", referencedColumnName = "id")
     private Set<FlightSchedule> setOfflights; //An airline will have Unique flightIds
     
+    
 	
+	public Airline() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getId() {
 		return id;
 	}
