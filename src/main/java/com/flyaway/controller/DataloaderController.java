@@ -10,9 +10,12 @@ import org.apache.logging.log4j.Logger;
 
 import com.flyaway.entities.Airline;
 import com.flyaway.entities.CityAirport;
+import com.flyaway.entities.FlightBooking;
 import com.flyaway.entities.FlightSchedule;
+import com.flyaway.entities.Passenger;
 import com.flyaway.service.AirlineService;
 import com.flyaway.service.CityAirportService;
+import com.flyaway.service.FlightBookingService;
 import com.flyaway.service.FlightScheduleService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,6 +52,14 @@ public class DataloaderController extends HttpServlet {
         
         List<CityAirport> airports = new CityAirportService().getAllCityAirports();
         request.setAttribute("airportList", airports);  
+        
+        FlightBookingService fsb = new FlightBookingService();
+        
+        List<FlightBooking> flightBookings = fsb.getAllBookingDetails();     
+        List<Passenger> passengers = fsb.findAllPassengersBookingDetail();
+        
+        request.setAttribute("flightBookingList", flightBookings);
+        request.setAttribute("passengerList", passengers);
         
         request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
 	}

@@ -45,7 +45,6 @@ public class BookingController extends HttpServlet {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
 		response.setContentType("text/html");
-		//PrintWriter pw = response.getWriter();
 
 		int passengerNum = Integer.valueOf(request.getParameter("numOfPassengers"));
 
