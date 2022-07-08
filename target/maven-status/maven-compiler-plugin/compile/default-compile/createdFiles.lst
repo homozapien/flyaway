@@ -22,6 +22,7 @@ com/flyaway/controller/PasswordMgmtController.class
 com/flyaway/service/FlightBookingService.class
 com/flyaway/controller/DataloaderController.class
 com/flyaway/dao/FlightBookingDao.class
+com/flyaway/controller/CustomerBookingsController.class
 com/flyaway/pojo/FlightSearch.class
 com/flyaway/dao/AirlineDAO.class
 com/flyaway/dao/CityAiportDAO.class

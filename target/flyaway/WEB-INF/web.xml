@@ -90,6 +90,13 @@
   	<servlet-name>RegistrationController</servlet-name>
   	<servlet-class>com.flyaway.controller.RegistrationController</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>CustomerBookingsController</display-name>
+  	<servlet-name>CustomerBookingsController</servlet-name>
+  	<servlet-class>com.flyaway.controller.CustomerBookingsController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>DataloaderController</servlet-name>
     <url-pattern>/DataloaderController</url-pattern>
@@ -117,5 +124,9 @@
   <servlet-mapping>
   	<servlet-name>RegistrationController</servlet-name>
   	<url-pattern>/RegistrationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CustomerBookingsController</servlet-name>
+  	<url-pattern>/CustomerBookingsController</url-pattern>
   </servlet-mapping>
 </web-app>

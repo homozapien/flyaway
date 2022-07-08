@@ -28,7 +28,7 @@
 						</tr>
 
 						<tr>
-							<td><a href="DataloaderController">My Bookings</a></td>									
+							<td><a href="CustomerBookingsController">My Bookings</a></td>									
 							<td>Show My Bookings</td>
 						</tr>
 					<tbody>
